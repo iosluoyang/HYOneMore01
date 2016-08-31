@@ -1,0 +1,6 @@
+framework module Pods_HYOneMore {
+  umbrella header "Pods-HYOneMore-umbrella.h"
+
+  export *
+  module * { export * }
+}
