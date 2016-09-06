@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import "HYMainTableVC.h"
+#import "CoreLaunchCool.h"
 @interface AppDelegate ()
 
 @end
@@ -17,9 +18,31 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window  = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    //选择根控制器:
+    [self chooseRootVC];
+    [self.window makeKeyAndVisible];
+    //加载进入主界面的动画:
+    [CoreLaunchCool animWithWindow:self.window image:[UIImage imageNamed:@"HYOneMore"] withAnimationTime:2];
+    
     return YES;
 }
+#pragma mark - 选择根控制器
+-(void)chooseRootVC
+{
+    UIViewController*rootvc = NULL;
+#if DEBUG
+    rootvc = [[UINavigationController alloc]initWithRootViewController:[[HYMainTableVC alloc]init]];
+#else
+    rootvc = [[UINavigationController alloc]initWithRootViewController:[[HYMainTableVC alloc]init]];
+    
+#endif
+    
+    self.window.rootViewController = rootvc;
 
+}
+#pragma mark - 设置
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

@@ -3,9 +3,9 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'HYOneMore' do
-
-pod 'AFNetworking'
-
-pod 'SwiftyJSON'
-
+    
+#table管理工具
+pod 'RETableViewManager', '~> 1.7'
+#响应式编程
+pod 'ReactiveCocoa', '~> 2.5.0'
 end

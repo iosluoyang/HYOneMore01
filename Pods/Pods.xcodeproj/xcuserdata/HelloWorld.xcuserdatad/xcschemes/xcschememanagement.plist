@@ -4,17 +4,32 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AFNetworking.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-HYOneMore.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SwiftyJSON.xcscheme</key>
+		<key>REFormattedNumberField.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RETableViewManager-RETableViewManager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RETableViewManager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>REValidation.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ReactiveCocoa.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -22,17 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1C3436CEA5C3D39764C5F54374794ECB</key>
+		<key>04373DB792D41DBAAC16D79692326E2B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>30FDDC5AB0D41FC9A1345AE39C8CD399</key>
+		<key>54156BF1CED8141F0C75D25AF4F68547</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>96519B1A207DDEA3C022D4E60694DAA0</key>
+		<key>76EB975971932BF3A56C324B45C5B1EB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>96E5265DAAC25065CDF566FE079B54E6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D816D355E4D39CBF282BAC34E5435B97</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E6F4B713CA8433A797EE800DAFD56FAD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

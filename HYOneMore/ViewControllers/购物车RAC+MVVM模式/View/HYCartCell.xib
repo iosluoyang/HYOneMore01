@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="109" id="KGk-i7-Jjw" customClass="HYCartCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="109"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="108.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yy2-mE-Pdk">
+                        <rect key="frame" x="11" y="8" width="27" height="92.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="27" id="Wvz-R5-4QM"/>
+                        </constraints>
+                        <state key="normal" image="radio_normal"/>
+                        <state key="selected" image="radio_selected"/>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="smile" translatesAutoresizingMaskIntoConstraints="NO" id="Rwz-8x-p4I">
+                        <rect key="frame" x="48" y="14" width="80" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="4gA-Pr-xdv"/>
+                            <constraint firstAttribute="height" constant="80" id="F73-gu-0TV"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="颜色:蓝色/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRH-FY-BgO">
+                        <rect key="frame" x="133" y="50" width="56" height="14.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="56" id="CCg-K0-Gmr"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="尺码:女37" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVP-lA-oBI">
+                        <rect key="frame" x="194" y="50" width="54" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥88888.88" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCM-gQ-BIz">
+                        <rect key="frame" x="133" y="73" width="87.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="1" green="0.027763065560000001" blue="0.028886134989999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1jS-3n-vM7" customClass="HYCartNumberCount">
+                        <rect key="frame" x="228" y="72.5" width="76" height="23"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="23" id="61g-i6-oZT"/>
+                            <constraint firstAttribute="width" constant="76" id="k69-Qb-Nb6"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的意中人是个盖世英雄，有一天他会他踏着七色祥云来娶我，我猜中的开头，却没有猜中结尾。" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZT-hO-l0c">
+                        <rect key="frame" x="133" y="14" width="169" height="31.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="yy2-mE-Pdk" secondAttribute="bottom" id="10W-HQ-Y0y"/>
+                    <constraint firstItem="yCM-gQ-BIz" firstAttribute="leading" secondItem="wRH-FY-BgO" secondAttribute="leading" id="1Tu-dB-9cT"/>
+                    <constraint firstItem="wRH-FY-BgO" firstAttribute="leading" secondItem="LZT-hO-l0c" secondAttribute="leading" id="4j0-Wc-lHP"/>
+                    <constraint firstItem="yy2-mE-Pdk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="8CK-7t-Axb"/>
+                    <constraint firstItem="IVP-lA-oBI" firstAttribute="leading" secondItem="wRH-FY-BgO" secondAttribute="trailing" constant="5" id="BPS-cF-LKk"/>
+                    <constraint firstItem="wRH-FY-BgO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="C2T-06-IFt"/>
+                    <constraint firstItem="wRH-FY-BgO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="CzV-Lx-KXX"/>
+                    <constraint firstItem="LZT-hO-l0c" firstAttribute="top" secondItem="Rwz-8x-p4I" secondAttribute="top" id="IdA-6D-GhS"/>
+                    <constraint firstItem="Rwz-8x-p4I" firstAttribute="leading" secondItem="yy2-mE-Pdk" secondAttribute="trailing" constant="10" id="OLR-CB-Wwf"/>
+                    <constraint firstItem="yCM-gQ-BIz" firstAttribute="bottom" secondItem="Rwz-8x-p4I" secondAttribute="bottom" id="Rbs-PA-f5L"/>
+                    <constraint firstItem="1jS-3n-vM7" firstAttribute="centerY" secondItem="yCM-gQ-BIz" secondAttribute="centerY" id="UEN-IG-0la"/>
+                    <constraint firstItem="Rwz-8x-p4I" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="aw8-jc-t2k"/>
+                    <constraint firstItem="LZT-hO-l0c" firstAttribute="leading" secondItem="Rwz-8x-p4I" secondAttribute="trailing" constant="5" id="gM1-y5-KRU"/>
+                    <constraint firstItem="yy2-mE-Pdk" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ky6-qn-0Cr"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="LZT-hO-l0c" secondAttribute="trailing" constant="10" id="nLM-Ne-IkG"/>
+                    <constraint firstItem="IVP-lA-oBI" firstAttribute="centerY" secondItem="wRH-FY-BgO" secondAttribute="centerY" id="otu-rB-pO9"/>
+                    <constraint firstItem="yy2-mE-Pdk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="3" id="qrw-Ck-Hyo"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="1jS-3n-vM7" secondAttribute="trailing" constant="8" id="vuR-aK-GxI"/>
+                    <constraint firstItem="wRH-FY-BgO" firstAttribute="top" secondItem="LZT-hO-l0c" secondAttribute="bottom" constant="5" id="zP1-AM-asS"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="C2T-06-IFt"/>
+                        <exclude reference="CzV-Lx-KXX"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="GoodsPricesLabel" destination="yCM-gQ-BIz" id="u2Y-Xl-U86"/>
+                <outlet property="goodsImageView" destination="Rwz-8x-p4I" id="cx1-x4-tdi"/>
+                <outlet property="goodsKindLabel" destination="wRH-FY-BgO" id="yGK-sU-Qp0"/>
+                <outlet property="goodsNameLabel" destination="LZT-hO-l0c" id="LPc-It-NGR"/>
+                <outlet property="goodsSizeLabel" destination="IVP-lA-oBI" id="SoT-8o-ocL"/>
+                <outlet property="nummberCount" destination="1jS-3n-vM7" id="que-gb-aRr"/>
+                <outlet property="selectShopGoodsButton" destination="yy2-mE-Pdk" id="39g-nb-ScW"/>
+            </connections>
+            <point key="canvasLocation" x="404" y="189.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="radio_normal" width="22" height="22"/>
+        <image name="radio_selected" width="22" height="22"/>
+        <image name="smile" width="403" height="220"/>
+    </resources>
+</document>

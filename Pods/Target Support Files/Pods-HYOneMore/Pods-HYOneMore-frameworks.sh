@@ -84,10 +84,14 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/AFNetworking/AFNetworking.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON/SwiftyJSON.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/REFormattedNumberField/REFormattedNumberField.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RETableViewManager/RETableViewManager.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/REValidation/REValidation.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/ReactiveCocoa/ReactiveCocoa.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/AFNetworking/AFNetworking.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON/SwiftyJSON.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/REFormattedNumberField/REFormattedNumberField.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RETableViewManager/RETableViewManager.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/REValidation/REValidation.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/ReactiveCocoa/ReactiveCocoa.framework"
 fi

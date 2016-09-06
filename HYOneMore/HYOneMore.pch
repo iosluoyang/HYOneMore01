@@ -1,0 +1,42 @@
+//
+//  HYOneMore.pch
+//  HYOneMore
+//
+//  Created by 海洋 on 16/9/4.
+//  Copyright © 2016年 海洋. All rights reserved.
+//
+
+#ifndef HYOneMore_pch
+#define HYOneMore_pch
+
+#pragma mark - 头文件
+
+#import "RETableViewManager.h"
+#import "ReactiveCocoa.h"
+
+#pragma mark - 工具类
+#import "UIColor+Hex.h"
+
+
+
+
+#pragma mark - 静态变量
+
+//屏幕的宽度
+#define WIDTH  [UIScreen mainScreen].bounds.size.width
+//屏幕的高度
+#define HEIGHT [UIScreen mainScreen].bounds.size.height
+//字体
+#define HYFont(size) [UIFont systemFontOfSize:(size)]
+//弱引用
+#define WEAK  @weakify(self);
+//强引用
+#define STRONG  @strongify(self);
+
+#pragma mark - 公有方法
+//颜色
+#define LCRGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
+
+
+
+#endif /* HYOneMore_pch */
