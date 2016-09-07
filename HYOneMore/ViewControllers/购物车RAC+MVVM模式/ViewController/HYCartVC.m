@@ -10,6 +10,7 @@
 #import "HYCartUIService.h"
 #import "HYCartViewModel.h"
 #import "HYCartBar.h"
+#import "HYGoodsDetailVC.h"
 @interface HYCartVC ()
 {
     BOOL _isIdit;
@@ -30,10 +31,11 @@
     
     [super viewWillAppear:animated];
     
-    [self getNewData];
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self getNewData];
     /*setting up*/
     self.automaticallyAdjustsScrollViewInsets = YES;
     self.title = @"购物车";
@@ -58,6 +60,9 @@
     [self.view addSubview:self.cartTableView];
     [self.view addSubview:self.cartBar];
     
+    /* 默认选择全部商品 */
+    [self.viewModel selectAll:YES];
+    
     /* RAC  */
     //全选
     [[self.cartBar.selectAllButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *x) {
@@ -70,26 +75,33 @@
     }];
     //结算
     [[self.cartBar.payButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *x) {
-        NSLog(@"点击了结算按钮");
+        NSLog(@"点击了支付按钮");
+        
     }];
+   
     /* 观察价格属性 */
     
     [RACObserve(self.viewModel, allPrices) subscribeNext:^(NSNumber *x) {
         self.cartBar.money = x.floatValue;
     }];
+   
+  
     
     /* 全选 状态 */
     RAC(self.cartBar.selectAllButton, selected) = RACObserve(self.viewModel, isSelectAll);
     
     /* 购物车数量 */
-    [RACObserve(self.viewModel, cartGoodsCount) subscribeNext:^(NSNumber *x) {
+    [RACObserve(self.viewModel, cartGoodsTotalCount) subscribeNext:^(NSNumber *x) {
         if(x.integerValue == 0){
-            self.title = [NSString stringWithFormat:@"购物车"];
+            [self.cartBar.payButton setTitle:@"去结算" forState:UIControlStateNormal];
         } else {
-            self.title = [NSString stringWithFormat:@"购物车(已选%@件)",x];
+           [self.cartBar.payButton setTitle:[NSString stringWithFormat:@"去结算(%@)",x] forState:UIControlStateNormal];
         }
     }];
-    // Do any additional setup after loading the view.
+    
+    //设置一些初始值:
+    [self.viewModel selectAll:YES];
+   
 }
 #pragma mark - 懒加载
 
@@ -127,7 +139,16 @@
         _cartTableView.dataSource = self.service;
         _cartTableView.delegate   = self.service;
         _cartTableView.backgroundColor = RGBA_COLOR(240, 240, 240, 1);
-        _cartTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, 30)];
+        _cartTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, 50)];
+        //设置点击回调事件:
+        DidSelectCellBlock selectedBlock = ^(NSIndexPath *indexPath, id item) {
+            NSLog(@"点击了第%@行,点击的商品价格为:%@",@(indexPath.row),item) ;
+            HYGoodsDetailVC *vc = [[HYGoodsDetailVC alloc]init];
+            vc.price = item;
+            [self.navigationController pushViewController:vc animated:YES];
+            
+        } ;
+        self.service.didSelectCellBlock = selectedBlock;
     }
     return _cartTableView;
 }
@@ -135,7 +156,7 @@
 - (HYCartBar *)cartBar {
     
     if (!_cartBar) {
-        _cartBar = [[HYCartBar alloc] initWithFrame:CGRectMake(0, HEIGHT-30, WIDTH, 30)];
+        _cartBar = [[HYCartBar alloc] initWithFrame:CGRectMake(0, HEIGHT-50, WIDTH, 50)];
         _cartBar.isNormalState = YES;
     }
     return _cartBar;

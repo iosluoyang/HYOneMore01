@@ -111,10 +111,10 @@ static NSInteger const SelectButtonTag = 122;
     _allMoneyLabel = label;
     
     /* assign value */
-//    WEAK
+    RACWEAK
     //对合计金额进行响应式监控
     [RACObserve(self, money) subscribeNext:^(NSNumber *x) {
-//        STRONG
+        RACSTRONG
         self.allMoneyLabel.text  = [NSString stringWithFormat:@"合计:¥%.2f",x.floatValue];
     }];
     

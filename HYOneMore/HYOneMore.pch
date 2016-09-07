@@ -10,7 +10,7 @@
 #define HYOneMore_pch
 
 #pragma mark - 头文件
-
+#import "HYBaseViewController.h"
 #import "RETableViewManager.h"
 #import "ReactiveCocoa.h"
 
@@ -29,9 +29,9 @@
 //字体
 #define HYFont(size) [UIFont systemFontOfSize:(size)]
 //弱引用
-#define WEAK  @weakify(self);
+#define RACWEAK  @weakify(self);
 //强引用
-#define STRONG  @strongify(self);
+#define RACSTRONG  @strongify(self);
 
 #pragma mark - 公有方法
 //颜色

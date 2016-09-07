@@ -13,6 +13,7 @@
 #import "HYCartFooterView.h"
 #import "HYCartModel.h"
 #import "HYCartNumberCount.h"
+
 @implementation HYCartUIService
 #pragma mark - UITableView Delegate/DataSource
 
@@ -99,6 +100,12 @@
     [self configureCell:cell forRowAtIndexPath:indexPath];
     
     return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"点击了某个商品");
+    HYCartModel *model = self.viewModel.cartData[indexPath.section][indexPath.row];
+    self.didSelectCellBlock(indexPath,model.p_price) ;
 }
 
 - (void)configureCell:(HYCartCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {

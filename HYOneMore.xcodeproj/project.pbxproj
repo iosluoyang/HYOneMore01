@@ -28,6 +28,7 @@
 		82FE1A541D7E7138002C35E4 /* HYCartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FE1A531D7E7138002C35E4 /* HYCartVC.m */; };
 		82FE1A571D7E71F4002C35E4 /* HYCartUIService.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FE1A561D7E71F4002C35E4 /* HYCartUIService.m */; };
 		82FE1A5A1D7E72C1002C35E4 /* HYCartViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FE1A591D7E72C1002C35E4 /* HYCartViewModel.m */; };
+		B0273F261D800A1300DB064B /* HYGoodsDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0273F251D800A1300DB064B /* HYGoodsDetailVC.m */; };
 		C3D9AFDB5E15A3950198A09E /* Pods_HYOneMore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFB95110BCFEE6B360B9067A /* Pods_HYOneMore.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,8 @@
 		82FE1A561D7E71F4002C35E4 /* HYCartUIService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCartUIService.m; sourceTree = "<group>"; };
 		82FE1A581D7E72C1002C35E4 /* HYCartViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCartViewModel.h; sourceTree = "<group>"; };
 		82FE1A591D7E72C1002C35E4 /* HYCartViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCartViewModel.m; sourceTree = "<group>"; };
+		B0273F241D800A1300DB064B /* HYGoodsDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYGoodsDetailVC.h; sourceTree = "<group>"; };
+		B0273F251D800A1300DB064B /* HYGoodsDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYGoodsDetailVC.m; sourceTree = "<group>"; };
 		DFB95110BCFEE6B360B9067A /* Pods_HYOneMore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HYOneMore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -167,6 +170,8 @@
 			children = (
 				82FE1A521D7E7138002C35E4 /* HYCartVC.h */,
 				82FE1A531D7E7138002C35E4 /* HYCartVC.m */,
+				B0273F241D800A1300DB064B /* HYGoodsDetailVC.h */,
+				B0273F251D800A1300DB064B /* HYGoodsDetailVC.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -408,6 +413,7 @@
 				826B492E1D7D10B300D527EE /* HYMainTableVC.m in Sources */,
 				82FE1A571D7E71F4002C35E4 /* HYCartUIService.m in Sources */,
 				82FE1A5A1D7E72C1002C35E4 /* HYCartViewModel.m in Sources */,
+				B0273F261D800A1300DB064B /* HYGoodsDetailVC.m in Sources */,
 				82FE1A4E1D7E6E15002C35E4 /* HYCartFooterView.m in Sources */,
 				826B49281D7D104F00D527EE /* HYBaseViewController.m in Sources */,
 				82FE1A511D7E7012002C35E4 /* HYCartHeaderView.m in Sources */,

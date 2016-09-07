@@ -48,7 +48,8 @@
 - (void)getData{
     //数据个数
     NSInteger allCount = 5;
-    NSInteger allGoodsCount = 0;//所有商品的数量
+    NSInteger allGoodsCount = 0;//所有商品种类的数量
+    NSInteger allGoodsTotalCount = 0;//所有商品总数的数量
     NSMutableArray *storeArray = [NSMutableArray arrayWithCapacity:allCount];
     NSMutableArray *shopSelectAarry = [NSMutableArray arrayWithCapacity:allCount];
     //创造店铺数据
@@ -59,13 +60,14 @@
         for (int x = 0; x<goodsCount; x++) {
             HYCartModel *cartModel = [[HYCartModel alloc] init];
             cartModel.p_id         = [NSString stringWithFormat:@"%d",x];
-            cartModel.p_price      = [NSString stringWithFormat:@"%f",[_goodsPriceArray[self.random] floatValue]];
+            cartModel.p_price      = [NSString stringWithFormat:@"%.2f",[_goodsPriceArray[self.random] floatValue]];
             cartModel.p_name       = [NSString stringWithFormat:@"%@我的意中人是个盖世英雄，有一天他会他踏着七色祥云来娶我，我猜中的开头，却没有猜中结尾。",@(x)];
             cartModel.p_stock      = 0;//无库存
             cartModel.p_imageUrl   = _goodsPicArray[self.random];
             cartModel.p_quantity   = [_goodsQuantityArray[self.random] integerValue];
             [goodsArray addObject:cartModel];
             allGoodsCount++;
+            allGoodsTotalCount += cartModel.p_quantity;
         }
         [storeArray addObject:goodsArray];
         [shopSelectAarry addObject:@(NO)];
@@ -73,6 +75,8 @@
     self.cartData = storeArray;
     self.shopSelectArray = shopSelectAarry;
     self.cartGoodsCount = allGoodsCount;
+    self.cartGoodsTotalCount = allGoodsTotalCount;
+    
 }
 
 //获取总价
@@ -157,6 +161,15 @@
     HYCartModel *model = self.cartData[section][row];
     
     [model setValue:@(quantity) forKey:@"p_quantity"];
+    if (quantity > model.p_quantity) {
+        //增加:
+        self.cartGoodsTotalCount += (quantity - model.p_quantity);
+    }
+    else{
+        //减少:
+        self.cartGoodsTotalCount -= (model.p_quantity - quantity);
+    }
+   
     
     [self.cartTableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationNone];
     
@@ -181,10 +194,15 @@
     } else {
         [self.cartTableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationNone];
     }
-    self.cartGoodsCount-=1;
+    
+    HYCartModel *model = shopArray[row];
+    NSInteger goodscount = model.p_quantity;
+    self.cartGoodsCount-=1;//商品种类数量
+    self.cartGoodsTotalCount -= goodscount;
     /*重新计算价格*/
     self.allPrices = [self getAllPrices];
 }
+
 
 //选中删除
 - (void)deleteGoodsBySelect {

@@ -33,9 +33,13 @@
  */
 @property (nonatomic, assign) BOOL                  isSelectAll;
 /**
- *  购物车商品数量
+ *  购物车商品种类数量
  */
 @property (nonatomic, assign) NSInteger             cartGoodsCount;
+/**
+ *  购物车商品总数数量
+ */
+@property (nonatomic, assign) NSInteger             cartGoodsTotalCount;
 /**
  *  当前所选商品数量
  */
@@ -63,6 +67,9 @@
 
 //选中删除
 - (void)deleteGoodsBySelect;
+//选中商品
+-(void)selectcell:(NSIndexPath *)indexPath;
+
 
 
 @end

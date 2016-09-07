@@ -14,6 +14,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HYCartVC : UIViewController
+@interface HYCartVC : HYBaseViewController
 
 @end
