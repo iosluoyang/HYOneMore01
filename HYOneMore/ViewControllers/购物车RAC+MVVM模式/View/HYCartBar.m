@@ -56,7 +56,7 @@ static NSInteger const SelectButtonTag = 122;
     effectView.frame = self.bounds;
     [self addSubview:effectView];
     
-    CGFloat wd = WIDTH * 2/7;//结算按钮宽度占比
+    CGFloat wd = WIDTH * 3/7;//结算按钮宽度占比
     
     UIView*lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, WIDTH, 0.5)];
     lineView.backgroundColor = LCRGBACOLOR(220, 220, 223, 1.0);
@@ -102,7 +102,7 @@ static NSInteger const SelectButtonTag = 122;
     _selectAllButton  =allselectbtn;
     
     /* 价格 */
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(wd, 0, WIDTH - wd * 2 - 5, self.frame.size.height)];
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(allselectbtn.frame), 0, WIDTH - allselectbtn.frame.size.width - paybutton.frame.size.width - 5, self.frame.size.height)];
     label.text = [NSString stringWithFormat:@"合计:¥%@",@(00.00)];
     label.textColor = [UIColor blackColor];
     label.font = HYFont(15);

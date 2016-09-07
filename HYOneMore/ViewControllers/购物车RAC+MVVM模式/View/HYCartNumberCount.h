@@ -12,7 +12,7 @@
  */
 
 #import <UIKit/UIKit.h>
-typedef void(^HYNumberChangeBlock)(NSInteger count);
+typedef void(^HYNumberChangeBlock)(NSInteger currentcount , NSInteger type , NSInteger changeNum);//currentcount 当前数量  type 0减 1增 changeNum 变化的数量(点击加减固定为1,输入文本有差值)
 @interface HYCartNumberCount : UIView
 
 /**

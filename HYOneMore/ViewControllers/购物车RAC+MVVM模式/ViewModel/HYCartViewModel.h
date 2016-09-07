@@ -67,8 +67,7 @@
 
 //选中删除
 - (void)deleteGoodsBySelect;
-//选中商品
--(void)selectcell:(NSIndexPath *)indexPath;
+
 
 
 

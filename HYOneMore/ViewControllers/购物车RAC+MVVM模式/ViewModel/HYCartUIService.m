@@ -103,7 +103,6 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"点击了某个商品");
     HYCartModel *model = self.viewModel.cartData[indexPath.section][indexPath.row];
     self.didSelectCellBlock(indexPath,model.p_price) ;
 }
@@ -119,8 +118,11 @@
         [self.viewModel rowSelect:x.selected IndexPath:indexPath];
     }];
     //数量改变
-    cell.nummberCount.NumberChangeBlock = ^(NSInteger changeCount){
-        [self.viewModel rowChangeQuantity:changeCount indexPath:indexPath];
+    cell.nummberCount.NumberChangeBlock = ^(NSInteger currentcount , NSInteger type , NSInteger changeNum){
+        //currentcount 当前数量  type 0减 1增 changeNum 变化的数量(点击加减固定为1,输入文本有差值)
+        //根据传来的值进行判断是增加还是减少
+       self.viewModel.cartGoodsTotalCount =  type == 0 ? (self.viewModel.cartGoodsTotalCount - changeNum) :(self.viewModel.cartGoodsTotalCount + changeNum);
+        [self.viewModel rowChangeQuantity:currentcount indexPath:indexPath];
     };
     cell.model = model;
 }
@@ -144,4 +146,8 @@
     }
 }
 
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.viewModel.cartTableView endEditing:YES];
+}
 @end

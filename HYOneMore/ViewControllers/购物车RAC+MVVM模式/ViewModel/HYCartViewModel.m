@@ -27,10 +27,10 @@
     self = [super init];
     if (self) {
         //6
-        _shopGoodsCount  = @[@(1),@(8),@(5),@(2),@(4),@(4)];
+        _shopGoodsCount  = @[@(1),@(3),@(5),@(2),@(4),@(4)];//每一个商铺包含的商品数量
         _goodsPicArray  = @[@"smile", @"smile", @"smile", @"smile", @"smile", @"smile"];
-        _goodsPriceArray = @[@(30.45),@(120.09),@(8887.8),@(181.11),@(56.1),@(12)];
-        _goodsQuantityArray = @[@(12),@(21),@(1),@(10),@(3),@(5)];
+        _goodsPriceArray = @[@(30.45),@(120.09),@(8887.88),@(181.11),@(56.1),@(12)];
+        _goodsQuantityArray = @[@(6),@(16),@(26),@(36),@(46),@(56)];
     }
     return self;
 }
@@ -55,16 +55,16 @@
     //创造店铺数据
     for (int i = 0; i<allCount; i++) {
         //随机创造店铺下商品数据
-        NSInteger goodsCount = [_shopGoodsCount[self.random] intValue];
+        NSInteger goodsCount = [_shopGoodsCount[i] intValue];
         NSMutableArray *goodsArray = [NSMutableArray arrayWithCapacity:goodsCount];
         for (int x = 0; x<goodsCount; x++) {
             HYCartModel *cartModel = [[HYCartModel alloc] init];
             cartModel.p_id         = [NSString stringWithFormat:@"%d",x];
-            cartModel.p_price      = [NSString stringWithFormat:@"%.2f",[_goodsPriceArray[self.random] floatValue]];
-            cartModel.p_name       = [NSString stringWithFormat:@"%@我的意中人是个盖世英雄，有一天他会他踏着七色祥云来娶我，我猜中的开头，却没有猜中结尾。",@(x)];
+            cartModel.p_price      = [NSString stringWithFormat:@"%.2f",[_goodsPriceArray[x] floatValue]];
+            cartModel.p_name       = [NSString stringWithFormat:@"(%@,%@)我的意中人是个盖世英雄，有一天他会他踏着七色祥云来娶我，我猜中的开头，却没有猜中结尾。",@(i),@(x)];
             cartModel.p_stock      = 0;//无库存
-            cartModel.p_imageUrl   = _goodsPicArray[self.random];
-            cartModel.p_quantity   = [_goodsQuantityArray[self.random] integerValue];
+            cartModel.p_imageUrl   = _goodsPicArray[x];
+            cartModel.p_quantity   = [_goodsQuantityArray[x] integerValue];
             [goodsArray addObject:cartModel];
             allGoodsCount++;
             allGoodsTotalCount += cartModel.p_quantity;
@@ -138,7 +138,22 @@
     NSInteger shopCount        = goodsArray.count;
     HYCartModel *model         = goodsArray[row];
     [model setValue:@(isSelect) forKey:@"isSelect"];
-    //判断是都到达足够数量
+     //在此根据是否选中增加或者减少商品总数量或者商品种类总数量（仅在非编辑状态下选中,根据tableview的编辑状态决定是否做如下操作）
+    if (self.cartTableView.editing) {
+        //正处于非编辑状态，进行记录更改等的操作
+        if (model.isSelect) {
+            //选中，为增值
+            self.cartGoodsCount ++;
+            self.cartGoodsTotalCount += model.p_quantity;
+        }
+        else{
+            //未选中，为减值
+            self.cartGoodsCount --;
+            self.cartGoodsTotalCount -= model.p_quantity;
+        }
+
+    }
+       //判断是否都到达足够数量,展示是否选中商铺
     NSInteger isSelectShopCount = 0;
     for (HYCartModel *model in goodsArray) {
         if (model.isSelect) {
@@ -184,6 +199,10 @@
     NSInteger row     = path.row;
     
     NSMutableArray *shopArray = self.cartData[section];
+    /* 注意此处一定是在删除之前拿到该model的数据，否则会造成数组越界 */
+    HYCartModel *model = shopArray[row];
+    NSInteger goodscount = model.p_quantity;
+    
     [shopArray removeObjectAtIndex:row];
     if (shopArray.count == 0) {
         /*1 删除数据*/
@@ -195,8 +214,6 @@
         [self.cartTableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationNone];
     }
     
-    HYCartModel *model = shopArray[row];
-    NSInteger goodscount = model.p_quantity;
     self.cartGoodsCount-=1;//商品种类数量
     self.cartGoodsTotalCount -= goodscount;
     /*重新计算价格*/
@@ -218,12 +235,17 @@
         for (HYCartModel *model in shopArray) {
             index2++;
             if (model.isSelect) {
+                //如果删除时被选中,则意味着要被删除
                 [selectIndexSet addIndex:index2];
+                //拿到当前商品的数量，在商品总数中减掉该数量
+                NSInteger deletegoodscounts = model.p_quantity;
+                self.cartGoodsTotalCount -= deletegoodscounts;
             }
         }
         NSInteger shopCount = shopArray.count;
         NSInteger selectCount = selectIndexSet.count;
         if (selectCount == shopCount) {
+    /* 当选中商品的数量和店铺中所有商品的数量都相等时,即删除总店铺的数量,即商品种类总数量-1 */
             [shopSelectIndex addIndex:index1];
             self.cartGoodsCount-=selectCount;
         }

@@ -52,7 +52,7 @@ static CGFloat const Wd = 20;
     [[self.subButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         self.currentCountNumber --;
         if (self.NumberChangeBlock) {
-            self.NumberChangeBlock(self.currentCountNumber);
+            self.NumberChangeBlock(self.currentCountNumber , 0 ,1);//currentcount 当前数量  type 0减 1增 changeNum 变化的数量(点击加减固定为1,输入文本有差值)
         }
     }];
     [self addSubview:_subButton];
@@ -70,7 +70,7 @@ static CGFloat const Wd = 20;
     self.numberTT.layer.borderWidth = 1.3;
     self.numberTT.font = HYFont(12);
     //暂时关闭输入TF的可输入性
-    self.numberTT.enabled = NO;
+//    self.numberTT.enabled = NO;
     [self addSubview:self.numberTT];
     
     /************************** 加 ****************************/
@@ -85,7 +85,7 @@ static CGFloat const Wd = 20;
     [[self.addButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         self.currentCountNumber++;
         if (self.NumberChangeBlock) {
-            self.NumberChangeBlock(self.currentCountNumber);
+            self.NumberChangeBlock(self.currentCountNumber , 1, 1);//currentcount 当前数量  type 0减 1增 changeNum 变化的数量(点击加减固定为1,输入文本有差值)
         }
     }];
     
@@ -96,25 +96,37 @@ static CGFloat const Wd = 20;
     [[[NSNotificationCenter defaultCenter]rac_addObserverForName:@"UITextFieldTextDidEndEditingNotification" object:self.numberTT] subscribeNext:^(id x) {
         UITextField *t1 = [x object];
         NSString *text = t1.text;
-        NSInteger changeNum = 0;
+        NSInteger changedNum = 0;//更改之后的数量
+        NSInteger changeType  = 0;//更改的类型, 0减  1增
+        NSInteger changeNum = 0;//更改的数量
         //当有最高数量的限制并且输入数量大于最高数量
         if (text.integerValue > _totalNum && _totalNum != 0) {
+            //记录差值:
+            changeType = 1;//一定为增
+            changeNum = _totalNum - self.currentCountNumber;
             self.currentCountNumber = self.totalNum;
             self.numberTT.text = [NSString stringWithFormat:@"%@", @(self.totalNum)];
-            changeNum = self.totalNum;
+            changedNum = self.totalNum;
         }
         //输入数量少于1的时候
         else if (text.integerValue < 1){
-        self.numberTT.text = @"1";
-            changeNum = 1;
+              //记录差值:
+            changeType = 0;//一定为减
+            changeNum = self.currentCountNumber - 1;
+            
+            self.numberTT.text = @"1";
+            changedNum = 1;
         }
         //正常输入情况下
         else{
+            //记录差值:
+            changeType = self.currentCountNumber > text.integerValue ? 0:1;
+            changeNum = labs(self.currentCountNumber - text.integerValue);//取绝对值
             self.currentCountNumber = text.integerValue;
-            changeNum = self.currentCountNumber;
+            changedNum = self.currentCountNumber;
         }
         if (self.NumberChangeBlock) {
-            self.NumberChangeBlock(changeNum);
+            self.NumberChangeBlock(changedNum,changeType,changeNum);
         }
     }];
     
