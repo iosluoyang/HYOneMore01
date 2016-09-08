@@ -89,8 +89,35 @@
     /* 全选 状态 */
     RAC(self.cartBar.selectAllButton, selected) = RACObserve(self.viewModel, isSelectAll);
     
-    UIAlertController *alertviewcontroller = [UIAlertController alertControllerWithTitle:@"小海哥温馨提示,请您选择模式哦~~" message:@"结算按钮展示商品种类还是商品数量?" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"展示多多的商品数量" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    
+    UIAlertController *alertviewcontroller = [UIAlertController alertControllerWithTitle:@"小海哥温馨提示,请您选择模式哦~~" message:@"请选择合适的展示方式" preferredStyle:UIAlertControllerStyleAlert];
+   
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"展示简洁的商铺数量" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //展示商铺数量:
+        /* 购物车商铺数量 */
+        [RACObserve(self.viewModel, cartGoodsCount) subscribeNext:^(NSNumber *x) {
+            if(x.integerValue == 0){
+                [self.cartBar.payButton setTitle:@"去结算" forState:UIControlStateNormal];
+            } else {
+                [self.cartBar.payButton setTitle:[NSString stringWithFormat:@"去结算(%@家)",x] forState:UIControlStateNormal];
+            }
+        }];
+        
+    }];
+    
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"展示恰当的商品种类" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //展示商品种类:
+        /* 购物车商品种类数量 */
+        [RACObserve(self.viewModel, cartGoodsKindsCount) subscribeNext:^(NSNumber *x) {
+            if(x.integerValue == 0){
+                [self.cartBar.payButton setTitle:@"去结算" forState:UIControlStateNormal];
+            } else {
+                [self.cartBar.payButton setTitle:[NSString stringWithFormat:@"去结算(%@类)",x] forState:UIControlStateNormal];
+            }
+        }];
+        
+    }];
+    UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"展示多多的商品数量" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         //展示商品总数量:
         /* 观察购物车商品总数数量 */
         [RACObserve(self.viewModel, cartGoodsTotalCount) subscribeNext:^(NSNumber *x) {
@@ -102,22 +129,10 @@
         }];
         
     }];
-    
-    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"展示简洁的商品种类" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        //展示商品种类:
-        /* 购物车商品种类数量 */
-        [RACObserve(self.viewModel, cartGoodsCount) subscribeNext:^(NSNumber *x) {
-            if(x.integerValue == 0){
-                [self.cartBar.payButton setTitle:@"去结算" forState:UIControlStateNormal];
-            } else {
-                [self.cartBar.payButton setTitle:[NSString stringWithFormat:@"去结算(%@类)",x] forState:UIControlStateNormal];
-            }
-        }];
-        
-    }];
 
     [alertviewcontroller addAction:action1];
     [alertviewcontroller addAction:action2];
+    [alertviewcontroller addAction:action3];
     [self presentViewController:alertviewcontroller animated:YES completion:nil];
 
     
@@ -198,7 +213,10 @@
     NSString *itemTitle = _isIdit == YES ? @"完成" : @"编辑";
     _editItem.title = itemTitle;
     self.cartBar.isNormalState = !_isIdit;
-    self.cartTableView.editing = _isIdit;
+//    self.cartTableView.editing = _isIdit;
+    
+    
+    [self.viewModel selectAll:!_isIdit];
 }
 
 - (void)makeNewData:(UIBarButtonItem *)item{

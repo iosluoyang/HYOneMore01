@@ -31,59 +31,93 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
-//    return [HYCartHeaderView getCartHeaderHeight];
-    return CGFLOAT_MIN;
+    return [HYCartHeaderView getCartHeaderHeight];
+//    return CGFLOAT_MIN;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
-//    NSMutableArray *shopArray = self.viewModel.cartData[section];
-//    
-//    HYCartHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"HYCartHeaderView"];
-//    //店铺全选
-//    [[[headerView.selectStoreGoodsButton rac_signalForControlEvents:UIControlEventTouchUpInside]takeUntil:headerView.rac_prepareForReuseSignal] subscribeNext:^(UIButton *xx) {
-//        xx.selected = !xx.selected;
-//        BOOL isSelect = xx.selected;
-//        [self.viewModel.shopSelectArray replaceObjectAtIndex:section withObject:@(isSelect)];
-//        for (HYCartModel *model in shopArray) {
-//            [model setValue:@(isSelect) forKey:@"isSelect"];
-//        }
-//        [self.viewModel.cartTableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationNone];
-//        
-//        self.viewModel.allPrices = [self.viewModel getAllPrices];
-//    }];
-//    //店铺选中状态
-//    headerView.selectStoreGoodsButton.selected = [self.viewModel.shopSelectArray[section] boolValue];
-//    
-//    //    [RACObserve(headerView.selectStoreGoodsButton, selected) subscribeNext:^(NSNumber *x) {
-//    //
-//    //        BOOL isSelect = x.boolValue;
-//    //
-//    //        [self.viewModel.shopSelectArray replaceObjectAtIndex:section withObject:@(isSelect)];
-//    //        for (JSCartModel *model in shopArray) {
-//    //            [model setValue:@(isSelect) forKey:@"isSelect"];
-//    //        }
-//    //        [self.viewModel.cartTableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationNone];
-//    //    }];
-//    
-//    return headerView;
-    return nil;
+    NSMutableArray *shopArray = self.viewModel.cartData[section];
+    
+    HYCartHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"HYCartHeaderView"];
+    //店铺全选
+    [[[headerView.selectStoreGoodsButton rac_signalForControlEvents:UIControlEventTouchUpInside]takeUntil:headerView.rac_prepareForReuseSignal] subscribeNext:^(UIButton *xx) {
+        xx.selected = !xx.selected;
+        BOOL isSelect = xx.selected;//已经取反过的值，表示即将变的值
+        [self.viewModel.shopSelectArray replaceObjectAtIndex:section withObject:@(isSelect)];
+        //重新计算商铺数量，商品总数，商品种类
+        if (isSelect) {
+            //选中,增加
+            self.viewModel.cartGoodsCount ++;//商铺数量
+            //商品种类是增加该商铺之前未选中的商品种类 商品总数量是增加该商铺之前未选中的商品总数量
+            NSInteger tempkindsnum = self.viewModel.cartGoodsKindsCount;
+            NSInteger temptotalnum = self.viewModel.cartGoodsTotalCount;
+            
+            for (HYCartModel *model in shopArray) {
+                tempkindsnum +=  model.isSelect ? 0:1;
+                temptotalnum += model.isSelect ? 0:model.p_quantity;
+            }
+            self.viewModel.cartGoodsKindsCount = tempkindsnum;//商品种类数量
+            self.viewModel.cartGoodsTotalCount = temptotalnum;//商品总数量
+            
+        }
+        else
+        {
+        //取消选中，减少
+            self.viewModel.cartGoodsCount --;//商铺数量
+            //商品种类是减去该商铺之前选中的商品种类 商品总数量是减去该商铺之前选中的商品总数量
+            NSInteger tempkindsnum = self.viewModel.cartGoodsKindsCount;
+            NSInteger temptotalnum = self.viewModel.cartGoodsTotalCount;
+            
+            for (HYCartModel *model in shopArray) {
+                tempkindsnum -=  model.isSelect ? 1:0;
+                temptotalnum -= model.isSelect ? model.p_quantity:0;
+            }
+            self.viewModel.cartGoodsKindsCount = tempkindsnum;//商品种类数量
+            self.viewModel.cartGoodsTotalCount = temptotalnum;//商品总数量
+            
+        }
+        
+        
+        for (HYCartModel *model in shopArray) {
+            [model setValue:@(isSelect) forKey:@"isSelect"];
+        }
+        [self.viewModel.cartTableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationNone];
+        
+        self.viewModel.allPrices = [self.viewModel getAllPrices];
+    }];
+    //店铺选中状态
+    headerView.selectStoreGoodsButton.selected = [self.viewModel.shopSelectArray[section] boolValue];
+    
+    //    [RACObserve(headerView.selectStoreGoodsButton, selected) subscribeNext:^(NSNumber *x) {
+    //
+    //        BOOL isSelect = x.boolValue;
+    //
+    //        [self.viewModel.shopSelectArray replaceObjectAtIndex:section withObject:@(isSelect)];
+    //        for (JSCartModel *model in shopArray) {
+    //            [model setValue:@(isSelect) forKey:@"isSelect"];
+    //        }
+    //        [self.viewModel.cartTableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationNone];
+    //    }];
+    
+    return headerView;
+//    return nil;
 }
 #pragma mark - footer view
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-//    return [HYCartFooterView getCartFooterHeight];
+    return [HYCartFooterView getCartFooterHeight];
     return CGFLOAT_MIN;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     
-//    NSMutableArray *shopArray = self.viewModel.cartData[section];
-//    
-//    HYCartFooterView *footerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"HYCartFooterView"];
-//    
-//    footerView.shopGoodsArray = shopArray;
-//    
-//    return footerView;
-    return nil;
+    NSMutableArray *shopArray = self.viewModel.cartData[section];
+    
+    HYCartFooterView *footerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"HYCartFooterView"];
+    
+    footerView.shopGoodsArray = shopArray;
+    
+    return footerView;
+//    return nil;
 }
 #pragma mark - row
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

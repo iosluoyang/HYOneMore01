@@ -24,7 +24,7 @@
     [self chooseRootVC];
     [self.window makeKeyAndVisible];
     //加载进入主界面的动画:
-    [CoreLaunchCool animWithWindow:self.window image:[UIImage imageNamed:@"HYOneMore"] withAnimationTime:2];
+    [CoreLaunchCool animWithWindow:self.window image:[UIImage imageNamed:@"HYOneMore"] withAnimationTime:1];
     
     return YES;
 }

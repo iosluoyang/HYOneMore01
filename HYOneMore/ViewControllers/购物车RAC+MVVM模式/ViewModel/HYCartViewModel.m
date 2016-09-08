@@ -74,7 +74,8 @@
     }
     self.cartData = storeArray;
     self.shopSelectArray = shopSelectAarry;
-    self.cartGoodsCount = allGoodsCount;
+    self.cartGoodsCount = shopSelectAarry.count;
+    self.cartGoodsKindsCount = allGoodsCount;
     self.cartGoodsTotalCount = allGoodsTotalCount;
     
 }
@@ -111,6 +112,9 @@
 - (void)selectAll:(BOOL)isSelect {
     
     __block float allPrices = 0;
+    __block float allgoodskind = 0;
+    __block float allgooscount = 0;
+    __block float allshopcount = 0;
     
     self.shopSelectArray = [[[[self.shopSelectArray rac_sequence] map:^id(NSNumber *value) {
         return @(isSelect);
@@ -120,11 +124,20 @@
             [model setValue:@(isSelect) forKey:@"isSelect"];
             if (model.isSelect) {
                 allPrices += model.p_quantity*[model.p_price floatValue];
+                //合计总共商品数量的数据:
+                allgooscount += model.p_quantity;
+                //合计总共商品种类的数据:
+                allgoodskind ++;
+                //合计总共商铺数量的数据:
+                allshopcount = self.cartData.count;
             }
             return model;
         }] array] mutableCopy];
     }] array] mutableCopy];
-    self.allPrices = allPrices;
+    self.allPrices = allPrices;//总价
+    self.cartGoodsTotalCount = allgooscount;//商品总数量
+    self.cartGoodsCount = allshopcount;//商铺数量
+    self.cartGoodsKindsCount = allgoodskind;//商品种类数量
     [self.cartTableView reloadData];
 }
 
@@ -139,20 +152,20 @@
     HYCartModel *model         = goodsArray[row];
     [model setValue:@(isSelect) forKey:@"isSelect"];
      //在此根据是否选中增加或者减少商品总数量或者商品种类总数量（仅在非编辑状态下选中,根据tableview的编辑状态决定是否做如下操作）
-    if (self.cartTableView.editing) {
-        //正处于非编辑状态，进行记录更改等的操作
+//    if (!self.cartTableView.editing) {
+        //正处于非编辑状态，进行记录更改等的操作（注意isediting和tableview的editing为取反状态）
         if (model.isSelect) {
             //选中，为增值
-            self.cartGoodsCount ++;
-            self.cartGoodsTotalCount += model.p_quantity;
+            self.cartGoodsTotalCount += model.p_quantity;//商品总数量
+            self.cartGoodsKindsCount ++;//商品总种类
         }
         else{
             //未选中，为减值
-            self.cartGoodsCount --;
             self.cartGoodsTotalCount -= model.p_quantity;
+            self.cartGoodsKindsCount --;
         }
 
-    }
+//    }
        //判断是否都到达足够数量,展示是否选中商铺
     NSInteger isSelectShopCount = 0;
     for (HYCartModel *model in goodsArray) {
@@ -162,10 +175,22 @@
     }
     [self.shopSelectArray replaceObjectAtIndex:section withObject:@(isSelectShopCount==shopCount?YES:NO)];
     
+    //给商铺数量赋值,通过对self.shopselectarray中数值的监控拿到当前的商铺数量:
+    NSInteger shopsnum = 0;
+    for (id type in self.shopSelectArray) {
+        if ([type integerValue] == 1) {
+            shopsnum ++;
+        }
+    }
+    self.cartGoodsCount = shopsnum;//商铺总数量
+    
     [self.cartTableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationNone];
     
     /*重新计算价格*/
     self.allPrices = [self getAllPrices];
+#if DEBUG
+    NSLog(@"商铺数量:%ld,商品种类:%ld,商品总数量为:%ld",(long)self.cartGoodsCount,(long)self.cartGoodsKindsCount,(long)self.cartGoodsTotalCount);
+#endif
 }
 //某个商品的数量加减
 - (void)rowChangeQuantity:(NSInteger)quantity indexPath:(NSIndexPath *)indexPath {
@@ -213,9 +238,13 @@
     } else {
         [self.cartTableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationNone];
     }
+    //在cell被选中的情况下才进行计算,否则重复删减数据
+    if (model.isSelect) {
+        self.cartGoodsKindsCount-=1;//商品种类数量
+        self.cartGoodsTotalCount -= goodscount;//商品总数量
+    }
     
-    self.cartGoodsCount-=1;//商品种类数量
-    self.cartGoodsTotalCount -= goodscount;
+    self.cartGoodsCount = self.cartData.count;//商铺数量
     /*重新计算价格*/
     self.allPrices = [self getAllPrices];
 }
@@ -224,6 +253,9 @@
 //选中删除
 - (void)deleteGoodsBySelect {
     
+#if DEBUG
+    NSLog(@"商铺数量:%ld,商品种类:%ld,商品总数量为:%ld",(long)self.cartGoodsCount,(long)self.cartGoodsKindsCount,(long)self.cartGoodsTotalCount);
+#endif
     /*1 删除数据*/
     NSInteger index1 = -1;
     NSMutableIndexSet *shopSelectIndex = [NSMutableIndexSet indexSet];
@@ -239,16 +271,17 @@
                 [selectIndexSet addIndex:index2];
                 //拿到当前商品的数量，在商品总数中减掉该数量
                 NSInteger deletegoodscounts = model.p_quantity;
-                self.cartGoodsTotalCount -= deletegoodscounts;
+                self.cartGoodsTotalCount -= deletegoodscounts;//商品总数量
             }
         }
         NSInteger shopCount = shopArray.count;
         NSInteger selectCount = selectIndexSet.count;
         if (selectCount == shopCount) {
-    /* 当选中商品的数量和店铺中所有商品的数量都相等时,即删除总店铺的数量,即商品种类总数量-1 */
+    /* 当选中商品的种类数量和店铺中所有商品的种类数量都相等时,即删除总店铺的数量,即商铺数量-1,商品种类数量减去选中的数量 */
             [shopSelectIndex addIndex:index1];
-            self.cartGoodsCount-=selectCount;
+//            self.cartGoodsCount --;//商铺数量  //因为在选中某个商品的时候不区分tableview的editing编辑模式，所以此时的商铺数量已经减过了，即，在此处不减去商铺的数量
         }
+        self.cartGoodsKindsCount -= selectCount;//商品种类数量
         [shopArray removeObjectsAtIndexes:selectIndexSet];
     }
     [self.cartData removeObjectsAtIndexes:shopSelectIndex];
@@ -259,6 +292,9 @@
     self.allPrices = 0;
     /*重新计算价格*/
     self.allPrices = [self getAllPrices];
+#if DEBUG
+    NSLog(@"商铺数量:%ld,商品种类:%ld,商品总数量为:%ld",(long)self.cartGoodsCount,(long)self.cartGoodsKindsCount,(long)self.cartGoodsTotalCount);
+#endif
 }
 
 
