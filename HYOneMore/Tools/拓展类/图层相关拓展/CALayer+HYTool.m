@@ -1,14 +1,14 @@
 //
-//  CALayer+Transition.m
+//  CALayer+Transition.h
 //  Carpenter
 //
-//  Created by 冯成林 on 15/4/23.
-//  Copyright (c) 2015年 冯成林. All rights reserved.
+//  Created by 海洋 on 16/09/09.
+//  Copyright (c) 2016年 海洋. All rights reserved.
 //
 
-#import "CALayer+Cool.h"
+#import "CALayer+HYTool.h"
 
-@implementation CALayer (Cool)
+@implementation CALayer (HYTool)
 
 
 /**

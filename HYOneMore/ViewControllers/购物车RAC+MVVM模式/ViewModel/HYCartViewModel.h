@@ -13,13 +13,13 @@
  */
 
 #import <Foundation/Foundation.h>
-@class HYCartVC;
+#import "HYCartVC.h"
 
 @interface HYCartViewModel : NSObject
 
-@property (nonatomic, weak  ) HYCartVC *cartVC;
+@property (nonatomic, strong  ) HYCartVC *cartVC;
 @property (nonatomic, strong) NSMutableArray       *cartData;
-@property (nonatomic, weak  ) UITableView          *cartTableView;
+@property (nonatomic, strong  ) UITableView          *cartTableView;
 /**
  *  存放货源方选中
  */

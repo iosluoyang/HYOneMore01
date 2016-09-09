@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "HYMainTableVC.h"
-#import "CoreLaunchCool.h"
 @interface AppDelegate ()
 
 @end
@@ -24,7 +23,7 @@
     [self chooseRootVC];
     [self.window makeKeyAndVisible];
     //加载进入主界面的动画:
-    [CoreLaunchCool animWithWindow:self.window image:[UIImage imageNamed:@"HYOneMore"] withAnimationTime:1];
+    [HYTool animWithWindow:self.window image:[UIImage imageNamed:@"HYOneMore"] withAnimationTime:1];
     
     return YES;
 }

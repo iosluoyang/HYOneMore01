@@ -11,10 +11,7 @@
 static CGFloat const Wd = 20;
 
 @interface HYCartNumberCount()
-//加
-@property (nonatomic, strong) UIButton    *addButton;
-//减
-@property (nonatomic, strong) UIButton    *subButton;
+
 //数字按钮
 @property (nonatomic, strong) UITextField *numberTT;
 

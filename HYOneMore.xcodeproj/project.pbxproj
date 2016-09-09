@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		821F69C51D830EF30047EE8B /* HYTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 821F69BD1D830EF30047EE8B /* HYTool.m */; };
+		821F69C61D830EF30047EE8B /* CALayer+HYTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 821F69C11D830EF30047EE8B /* CALayer+HYTool.m */; };
+		821F69C71D830EF30047EE8B /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 821F69C41D830EF30047EE8B /* UIColor+Hex.m */; };
 		824AE7051D7D4532008CBE29 /* HYCartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 824AE7031D7D4532008CBE29 /* HYCartCell.m */; };
 		824AE7061D7D4532008CBE29 /* HYCartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 824AE7041D7D4532008CBE29 /* HYCartCell.xib */; };
 		826B49281D7D104F00D527EE /* HYBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 826B49251D7D104F00D527EE /* HYBaseViewController.m */; };
 		826B492E1D7D10B300D527EE /* HYMainTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 826B492D1D7D10B300D527EE /* HYMainTableVC.m */; };
 		826B49351D7D14F500D527EE /* HYCartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 826B49341D7D14F500D527EE /* HYCartModel.m */; };
 		826B49381D7D15FC00D527EE /* HYCartBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 826B49371D7D15FC00D527EE /* HYCartBar.m */; };
-		826B493F1D7D1C4D00D527EE /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 826B493E1D7D1C4D00D527EE /* UIColor+Hex.m */; };
-		82AE9FC81D7C51F90061E846 /* CALayer+Cool.m in Sources */ = {isa = PBXBuildFile; fileRef = 82AE9FC51D7C51F90061E846 /* CALayer+Cool.m */; };
-		82AE9FC91D7C51F90061E846 /* CoreLaunchCool.m in Sources */ = {isa = PBXBuildFile; fileRef = 82AE9FC71D7C51F90061E846 /* CoreLaunchCool.m */; };
 		82AE9FD11D7C5EDD0061E846 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82AE9FD01D7C5EDD0061E846 /* Assets.xcassets */; };
 		82AE9FD31D7C60460061E846 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82AE9FD21D7C60460061E846 /* Images.xcassets */; };
 		82D62DA51D76BA8800C91FFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D62DA41D76BA8800C91FFD /* main.m */; };
@@ -35,6 +35,12 @@
 /* Begin PBXFileReference section */
 		34349776CD6C9E3EAF801915 /* Pods-HYOneMore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYOneMore.release.xcconfig"; path = "Pods/Target Support Files/Pods-HYOneMore/Pods-HYOneMore.release.xcconfig"; sourceTree = "<group>"; };
 		5F592B785259E9F5E7B1D714 /* Pods-HYOneMore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYOneMore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HYOneMore/Pods-HYOneMore.debug.xcconfig"; sourceTree = "<group>"; };
+		821F69BC1D830EF30047EE8B /* HYTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYTool.h; sourceTree = "<group>"; };
+		821F69BD1D830EF30047EE8B /* HYTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYTool.m; sourceTree = "<group>"; };
+		821F69C01D830EF30047EE8B /* CALayer+HYTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+HYTool.h"; sourceTree = "<group>"; };
+		821F69C11D830EF30047EE8B /* CALayer+HYTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+HYTool.m"; sourceTree = "<group>"; };
+		821F69C31D830EF30047EE8B /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		821F69C41D830EF30047EE8B /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		824AE7021D7D4532008CBE29 /* HYCartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCartCell.h; sourceTree = "<group>"; };
 		824AE7031D7D4532008CBE29 /* HYCartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCartCell.m; sourceTree = "<group>"; };
 		824AE7041D7D4532008CBE29 /* HYCartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HYCartCell.xib; sourceTree = "<group>"; };
@@ -46,12 +52,6 @@
 		826B49341D7D14F500D527EE /* HYCartModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCartModel.m; sourceTree = "<group>"; };
 		826B49361D7D15FC00D527EE /* HYCartBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCartBar.h; sourceTree = "<group>"; };
 		826B49371D7D15FC00D527EE /* HYCartBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCartBar.m; sourceTree = "<group>"; };
-		826B493D1D7D1C4D00D527EE /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
-		826B493E1D7D1C4D00D527EE /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
-		82AE9FC41D7C51F90061E846 /* CALayer+Cool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Cool.h"; sourceTree = "<group>"; };
-		82AE9FC51D7C51F90061E846 /* CALayer+Cool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Cool.m"; sourceTree = "<group>"; };
-		82AE9FC61D7C51F90061E846 /* CoreLaunchCool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreLaunchCool.h; sourceTree = "<group>"; };
-		82AE9FC71D7C51F90061E846 /* CoreLaunchCool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreLaunchCool.m; sourceTree = "<group>"; };
 		82AE9FD01D7C5EDD0061E846 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82AE9FD21D7C60460061E846 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		82D62DA01D76BA8800C91FFD /* HYOneMore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HYOneMore.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +97,42 @@
 				DFB95110BCFEE6B360B9067A /* Pods_HYOneMore.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		821F69BB1D830EF30047EE8B /* 基础工具类 */ = {
+			isa = PBXGroup;
+			children = (
+				821F69BC1D830EF30047EE8B /* HYTool.h */,
+				821F69BD1D830EF30047EE8B /* HYTool.m */,
+			);
+			path = "基础工具类";
+			sourceTree = "<group>";
+		};
+		821F69BE1D830EF30047EE8B /* 拓展类 */ = {
+			isa = PBXGroup;
+			children = (
+				821F69BF1D830EF30047EE8B /* 图层相关拓展 */,
+				821F69C21D830EF30047EE8B /* 颜色拓展 */,
+			);
+			path = "拓展类";
+			sourceTree = "<group>";
+		};
+		821F69BF1D830EF30047EE8B /* 图层相关拓展 */ = {
+			isa = PBXGroup;
+			children = (
+				821F69C01D830EF30047EE8B /* CALayer+HYTool.h */,
+				821F69C11D830EF30047EE8B /* CALayer+HYTool.m */,
+			);
+			path = "图层相关拓展";
+			sourceTree = "<group>";
+		};
+		821F69C21D830EF30047EE8B /* 颜色拓展 */ = {
+			isa = PBXGroup;
+			children = (
+				821F69C31D830EF30047EE8B /* UIColor+Hex.h */,
+				821F69C41D830EF30047EE8B /* UIColor+Hex.m */,
+			);
+			path = "颜色拓展";
 			sourceTree = "<group>";
 		};
 		826B49221D7D104F00D527EE /* ViewControllers */ = {
@@ -187,49 +223,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		826B49391D7D1B9400D527EE /* 颜色转换 */ = {
-			isa = PBXGroup;
-			children = (
-				826B493D1D7D1C4D00D527EE /* UIColor+Hex.h */,
-				826B493E1D7D1C4D00D527EE /* UIColor+Hex.m */,
-			);
-			path = "颜色转换";
-			sourceTree = "<group>";
-		};
 		82AE9FC01D7C51F90061E846 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				82AE9FC11D7C51F90061E846 /* 开机动画 */,
-				826B49391D7D1B9400D527EE /* 颜色转换 */,
+				821F69BB1D830EF30047EE8B /* 基础工具类 */,
+				821F69BE1D830EF30047EE8B /* 拓展类 */,
 			);
 			path = Tools;
-			sourceTree = "<group>";
-		};
-		82AE9FC11D7C51F90061E846 /* 开机动画 */ = {
-			isa = PBXGroup;
-			children = (
-				82AE9FC21D7C51F90061E846 /* CoreLaunch */,
-			);
-			path = "开机动画";
-			sourceTree = "<group>";
-		};
-		82AE9FC21D7C51F90061E846 /* CoreLaunch */ = {
-			isa = PBXGroup;
-			children = (
-				82AE9FC31D7C51F90061E846 /* CoreLaunchCool */,
-			);
-			path = CoreLaunch;
-			sourceTree = "<group>";
-		};
-		82AE9FC31D7C51F90061E846 /* CoreLaunchCool */ = {
-			isa = PBXGroup;
-			children = (
-				82AE9FC41D7C51F90061E846 /* CALayer+Cool.h */,
-				82AE9FC51D7C51F90061E846 /* CALayer+Cool.m */,
-				82AE9FC61D7C51F90061E846 /* CoreLaunchCool.h */,
-				82AE9FC71D7C51F90061E846 /* CoreLaunchCool.m */,
-			);
-			path = CoreLaunchCool;
 			sourceTree = "<group>";
 		};
 		82D62D971D76BA8800C91FFD = {
@@ -409,21 +409,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82AE9FC91D7C51F90061E846 /* CoreLaunchCool.m in Sources */,
 				826B492E1D7D10B300D527EE /* HYMainTableVC.m in Sources */,
+				821F69C71D830EF30047EE8B /* UIColor+Hex.m in Sources */,
 				82FE1A571D7E71F4002C35E4 /* HYCartUIService.m in Sources */,
 				82FE1A5A1D7E72C1002C35E4 /* HYCartViewModel.m in Sources */,
 				B0273F261D800A1300DB064B /* HYGoodsDetailVC.m in Sources */,
 				82FE1A4E1D7E6E15002C35E4 /* HYCartFooterView.m in Sources */,
 				826B49281D7D104F00D527EE /* HYBaseViewController.m in Sources */,
+				821F69C61D830EF30047EE8B /* CALayer+HYTool.m in Sources */,
 				82FE1A511D7E7012002C35E4 /* HYCartHeaderView.m in Sources */,
 				826B49351D7D14F500D527EE /* HYCartModel.m in Sources */,
-				826B493F1D7D1C4D00D527EE /* UIColor+Hex.m in Sources */,
 				82FE1A541D7E7138002C35E4 /* HYCartVC.m in Sources */,
 				82D62DA81D76BA8800C91FFD /* AppDelegate.m in Sources */,
 				824AE7051D7D4532008CBE29 /* HYCartCell.m in Sources */,
+				821F69C51D830EF30047EE8B /* HYTool.m in Sources */,
 				82FE1A4B1D7E61C9002C35E4 /* HYCartNumberCount.m in Sources */,
-				82AE9FC81D7C51F90061E846 /* CALayer+Cool.m in Sources */,
 				826B49381D7D15FC00D527EE /* HYCartBar.m in Sources */,
 				82D62DA51D76BA8800C91FFD /* main.m in Sources */,
 			);

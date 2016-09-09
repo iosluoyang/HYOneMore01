@@ -16,6 +16,14 @@ typedef void(^HYNumberChangeBlock)(NSInteger currentcount , NSInteger type , NSI
 @interface HYCartNumberCount : UIView
 
 /**
+ *  加按钮
+ */
+@property (nonatomic, strong) UIButton    *addButton;
+/**
+ *  减按钮
+ */
+@property (nonatomic, strong) UIButton    *subButton;
+/**
  *  总数
  */
 @property (nonatomic, assign) NSInteger           totalNum;

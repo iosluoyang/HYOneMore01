@@ -9,7 +9,7 @@
 #import "HYCartVC.h"
 #import "HYCartUIService.h"
 #import "HYCartViewModel.h"
-#import "HYCartBar.h"
+
 #import "HYGoodsDetailVC.h"
 @interface HYCartVC ()
 {
@@ -23,7 +23,7 @@
 
 @property (nonatomic, strong) UITableView     *cartTableView;
 
-@property (nonatomic, strong) HYCartBar       *cartBar;
+
 @end
 
 @implementation HYCartVC
@@ -222,6 +222,25 @@
 - (void)makeNewData:(UIBarButtonItem *)item{
     
     [self getNewData];
+}
+#pragma  mark - 加入购物车动画
+#pragma  CAAnimationDelegate 动画结束之后的方法:
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+{
+    if ([[anim valueForKey:@"animationName"]isEqualToString:@"groupsAnimation"]) {
+        
+        CABasicAnimation *shakeAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+        shakeAnimation.duration = 0.25f;
+        shakeAnimation.fromValue = [NSNumber numberWithFloat:0.8];
+        shakeAnimation.toValue = [NSNumber numberWithFloat:1.2];
+        shakeAnimation.autoreverses = YES;
+        
+        [self.cartBar.payButton.layer addAnimation:shakeAnimation forKey:nil];
+    }
+}
+// 移除弹出物
+- (void)removeFromLayer:(CALayer *)layerAnimation{
+    [layerAnimation removeFromSuperlayer];
 }
 
 

@@ -13,7 +13,10 @@
  */
 
 #import <UIKit/UIKit.h>
-
+#import "HYCartBar.h"
 @interface HYCartVC : HYBaseViewController
-
+/**
+ *  底部支付View
+ */
+@property (nonatomic, strong) HYCartBar       *cartBar;
 @end

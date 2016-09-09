@@ -15,12 +15,20 @@
 #import "ReactiveCocoa.h"
 
 #pragma mark - 工具类
-#import "UIColor+Hex.h"
+#import "HYTool.h"
 
 
 
 
 #pragma mark - 静态变量
+//屏幕的尺寸
+#define iphone4x_3_5 ([UIScreen mainScreen].bounds.size.height==480.0f)
+
+#define iphone5x_4_0 ([UIScreen mainScreen].bounds.size.height==568.0f)
+
+#define iphone6_4_7 ([UIScreen mainScreen].bounds.size.height==667.0f)
+
+#define iphone6Plus_5_5 ([UIScreen mainScreen].bounds.size.height==736.0f || [UIScreen mainScreen].bounds.size.height==414.0f)
 
 //屏幕的宽度
 #define WIDTH  [UIScreen mainScreen].bounds.size.width
