@@ -539,6 +539,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5F592B785259E9F5E7B1D714 /* Pods-HYOneMore.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HYOneMore/HYOneMore.pch";
@@ -555,6 +556,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 34349776CD6C9E3EAF801915 /* Pods-HYOneMore.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HYOneMore/HYOneMore.pch";
