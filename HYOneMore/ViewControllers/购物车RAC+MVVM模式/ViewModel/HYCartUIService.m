@@ -153,32 +153,39 @@
     }];
     //数量改变
     cell.nummberCount.NumberChangeBlock = ^(NSInteger currentcount , NSInteger type , NSInteger changeNum){
-        //currentcount 当前数量  type 0减 1增 changeNum 变化的数量(点击加减固定为1,输入文本有差值)
-        //根据传来的值进行判断是增加还是减少
-        //执行加入购物车或者减少购物车的动画,如果是增加,则起点为cell的加按钮,终点为结算按钮,否则则相反
+        
+            //currentcount 当前数量  type 0减 1增 changeNum 变化的数量(点击加减固定为1,输入文本有差值)
+            //根据传来的值进行判断是增加还是减少
+            //执行加入购物车或者减少购物车的动画,如果是增加,则起点为cell的加按钮,终点为结算按钮,否则则相反
 #warning 注意此处为了拿到起点位置和终点位置，故循环引入了cartvc,暂时未出现问题，分析时会有问题，待解决
-        if (type == 1) {
-            //增加
-            UIView *startview = cell.nummberCount.subButton;
-            UIView *endview = self.viewModel.cartVC.cartBar.payButton;
-            [HYTool startAnimationWithstartView:startview startviewifoncurrenview:NO isfromstartviewcenter:NO endView:endview endviewifoncurrenview:NO contentImg:[UIImage imageNamed:@"HYOneMore"] isopacity:NO istransform:YES AnimationTime:0.8 target:self.viewModel.cartVC];
-            //增加相应数量
-        self.viewModel.cartGoodsTotalCount =  self.viewModel.cartGoodsTotalCount + changeNum;
-            
+            if (type == 1) {
+                //增加
+                UIView *startview = cell.nummberCount.subButton;
+                UIView *endview = self.viewModel.cartVC.cartBar.payButton;
+                [HYTool startAnimationWithstartView:startview startviewifoncurrenview:NO isfromstartviewcenter:NO endView:endview endviewifoncurrenview:NO contentImg:[UIImage imageNamed:@"HYOneMore"] isopacity:NO istransform:YES AnimationTime:0.8 target:self.viewModel.cartVC];
+                //增加相应数量
+                self.viewModel.cartGoodsTotalCount =  self.viewModel.cartGoodsTotalCount + changeNum;
+                
+            }
+            else
+            {
+                //减少
+                UIView *startview = self.viewModel.cartVC.cartBar.payButton;
+                UIView *endview = cell.nummberCount.subButton;
+                [HYTool startAnimationWithstartView:startview startviewifoncurrenview:NO isfromstartviewcenter:YES endView:endview endviewifoncurrenview:NO contentImg:[UIImage imageNamed:@"HYOneMore"] isopacity:NO istransform:YES AnimationTime:0.8 target:self.viewModel.cartVC];
+                //减少相应数量
+                self.viewModel.cartGoodsTotalCount =  self.viewModel.cartGoodsTotalCount - changeNum;
+            }
+        
+        //如果此时cell没有被选中,则手动将cell选中(类似京东在未选中时的选中状态)
+        if (!cell.selectShopGoodsButton.selected) {
+            [self.viewModel rowSelect:YES IndexPath:indexPath];
         }
-        else
-        {
-            //减少
-            UIView *startview = self.viewModel.cartVC.cartBar.payButton;
-            UIView *endview = cell.nummberCount.subButton;
-            [HYTool startAnimationWithstartView:startview startviewifoncurrenview:NO isfromstartviewcenter:YES endView:endview endviewifoncurrenview:NO contentImg:[UIImage imageNamed:@"HYOneMore"] isopacity:NO istransform:YES AnimationTime:0.8 target:self.viewModel.cartVC];
-            //减少相应数量
-            self.viewModel.cartGoodsTotalCount =  self.viewModel.cartGoodsTotalCount - changeNum;
-        }
         
+  
+        [self.viewModel rowChangeQuantity:currentcount indexPath:indexPath];
         
-        
-    [self.viewModel rowChangeQuantity:currentcount indexPath:indexPath];
+
         
         
     };
