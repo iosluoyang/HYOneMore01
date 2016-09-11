@@ -177,10 +177,7 @@
                 self.viewModel.cartGoodsTotalCount =  self.viewModel.cartGoodsTotalCount - changeNum;
             }
         
-        //如果此时cell没有被选中,则手动将cell选中(类似京东在未选中时的选中状态)
-        if (!cell.selectShopGoodsButton.selected) {
-            [self.viewModel rowSelect:YES IndexPath:indexPath];
-        }
+
         
   
         [self.viewModel rowChangeQuantity:currentcount indexPath:indexPath];
