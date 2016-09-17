@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RMMapper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ReactiveCocoa.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,32 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>04373DB792D41DBAAC16D79692326E2B</key>
+		<key>37014787481D175518B2F131552B5643</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>54156BF1CED8141F0C75D25AF4F68547</key>
+		<key>757BC06F09B9AFEFE81F0A92099CEBC5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>76EB975971932BF3A56C324B45C5B1EB</key>
+		<key>879238E1A9905FFB2ADBFF7FEB880E11</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>96E5265DAAC25065CDF566FE079B54E6</key>
+		<key>A80C660546DFDEB59F4902155D5AA1BE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D816D355E4D39CBF282BAC34E5435B97</key>
+		<key>C14A6AC021019F8C58DD50833B215A77</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E6F4B713CA8433A797EE800DAFD56FAD</key>
+		<key>C16DC98E7BEB71BD8CC081895494A85E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CDDDAB7C09EC136E05E2606FC902A0D6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

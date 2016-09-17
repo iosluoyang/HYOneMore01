@@ -11,17 +11,20 @@ PODS:
     - REFormattedNumberField (~> 1.1.5)
     - REValidation (~> 0.1.4)
   - REValidation (0.1.4)
+  - RMMapper (1.1.5)
 
 DEPENDENCIES:
   - ReactiveCocoa (~> 2.5.0)
   - RETableViewManager (~> 1.7)
+  - RMMapper (~> 1.1.5)
 
 SPEC CHECKSUMS:
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   REFormattedNumberField: 70fc5fb1218ebd5ee9983820defd12806d5c6ec6
   RETableViewManager: 0f24d796c42c0890d38c79cc9aeb3871e186726e
   REValidation: 38c4de1be58455f8b00aab208ac80db316a66b7f
+  RMMapper: 21122d753c736d975f6c61e674afce8db73579af
 
-PODFILE CHECKSUM: 85ccf8e194d4468f7551f77fb48e67e01bcd813b
+PODFILE CHECKSUM: 1b3cfda5a06f15bbc3919a8551eaa2856076dba3
 
 COCOAPODS: 1.1.0.beta.1

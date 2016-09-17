@@ -46,7 +46,9 @@ static CGFloat const Wd = 20;
     [_subButton setBackgroundImage:[UIImage imageNamed:@"减（不可操作）60"] forState:UIControlStateDisabled];
     _subButton.tag = 0;
     //给-按钮增加响应式信号,传递当前数量
+    RACWEAK
     [[self.subButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        RACSTRONG
         self.currentCountNumber --;
         if (self.NumberChangeBlock) {
             self.NumberChangeBlock(self.currentCountNumber , 0 ,1);//currentcount 当前数量  type 0减 1增 changeNum 变化的数量(点击加减固定为1,输入文本有差值)
@@ -67,7 +69,7 @@ static CGFloat const Wd = 20;
     self.numberTT.layer.borderWidth = 1.3;
     self.numberTT.font = HYFont(12);
     //暂时关闭输入TF的可输入性
-//    self.numberTT.enabled = NO;
+    self.numberTT.enabled = NO;
     [self addSubview:self.numberTT];
     
     /************************** 加 ****************************/

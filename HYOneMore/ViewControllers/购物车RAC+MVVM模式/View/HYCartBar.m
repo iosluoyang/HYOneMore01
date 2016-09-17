@@ -103,7 +103,7 @@ static NSInteger const SelectButtonTag = 122;
     
     /* 价格 */
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(allselectbtn.frame), 0, WIDTH - allselectbtn.frame.size.width - paybutton.frame.size.width - 5, self.frame.size.height)];
-    label.text = [NSString stringWithFormat:@"合计:¥%@",@(00.00)];
+    label.text = [NSString stringWithFormat:@"去结算:¥%@",@(00.00)];
     label.textColor = [UIColor blackColor];
     label.font = HYFont(15);
     label.textAlignment = NSTextAlignmentRight;
@@ -128,11 +128,9 @@ static NSInteger const SelectButtonTag = 122;
     }];
     
     RAC(self.payButton,enabled) = comBineSign;
-    RAC(self.deleteButton,enabled) = comBineSign;
     
     //对各控件的显示隐藏方式进行响应式监控
     [RACObserve(self, isNormalState) subscribeNext:^(NSNumber *x) {
-//        STRONG
         BOOL isNormal = x.boolValue;
         self.payButton.hidden = !isNormal;
         self.allMoneyLabel.hidden = !isNormal;

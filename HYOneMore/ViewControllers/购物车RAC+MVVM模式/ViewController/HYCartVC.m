@@ -4,12 +4,12 @@
 //
 //  Created by 海洋 on 16/9/6.
 //  Copyright © 2016年 海洋. All rights reserved.
-
+#define CartBarHeight 50//底部的高度
 
 #import "HYCartVC.h"
 #import "HYCartUIService.h"
 #import "HYCartViewModel.h"
-
+#import "HYCartShopModel.h"
 #import "HYGoodsDetailVC.h"
 @interface HYCartVC ()
 {
@@ -40,34 +40,26 @@
     self.automaticallyAdjustsScrollViewInsets = YES;
     self.title = @"购物车";
     /*eidit button*/
-    _isIdit = NO;
-    /*   _makeDataItem = [[UIBarButtonItem alloc] initWithTitle:@"新数据"
-     style:UIBarButtonItemStyleDone
-     target:self
-     action:@selector(makeNewData:)];
-     
-     _makeDataItem.tintColor = [UIColor redColor];
-     self.navigationItem.leftBarButtonItem = _makeDataItem;
-     */
-    
+    _isIdit = NO;//默认状态为非编辑状态
+
     _editItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑"
                                                  style:UIBarButtonItemStyleDone
                                                 target:self
                                                 action:@selector(editClick:)];
-    _editItem.tintColor =  RGBA_COLOR(170, 170, 170, 1);
+    _editItem.tintColor = [UIColor colorWithHexString:@"#e0433a"];
     self.navigationItem.rightBarButtonItem = _editItem;
     /*add view*/
     [self.view addSubview:self.cartTableView];
     [self.view addSubview:self.cartBar];
     
-    /* 默认选择全部商品 */
-    [self.viewModel selectAll:YES];
+    
     
     /* RAC  */
     //全选
     [[self.cartBar.selectAllButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *x) {
         x.selected = !x.selected;
-        [self.viewModel selectAll:x.selected];
+        
+        [self.viewModel selectAll:x.selected ifconnect:!_isIdit];
     }];
     //删除
     [[self.cartBar.deleteButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *x) {
@@ -75,8 +67,34 @@
     }];
     //结算
     [[self.cartBar.payButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *x) {
+        NSLog(@"%@",self.viewModel);
         NSLog(@"点击了支付按钮");
+        //构建结算数据结构：
+        NSString *sumprice = [NSString stringWithFormat:@"%.2f",self.cartBar.money];
+        NSMutableArray *shoparray = [NSMutableArray array];
         
+        for (HYCartShopModel *shopmodel in self.viewModel.cartData) {
+            CGFloat totalprice = 0;
+            NSMutableArray *goodsarray = [NSMutableArray array];
+            for (HYCartModel *model in shopmodel.goods) {
+                //只增加选中的有效的商品
+                if ([model.issx integerValue] == 0 && [model.isSelect integerValue] ==1) {
+                    [goodsarray addObject:model];
+                    totalprice += [model.count integerValue] * [model.price floatValue];
+                }
+                
+            }
+            
+            if (goodsarray.count != 0) {
+                NSDictionary *tempdic = @{@"totalPrice":[NSString stringWithFormat:@"%.2f",totalprice],@"goods":goodsarray};
+                [shoparray addObject:tempdic];
+            }
+           
+        }
+        
+        HYGoodsDetailVC *goodsdetailvc = [[HYGoodsDetailVC alloc]initWithOnlyDetail:NO sumPrice:sumprice DataArr:shoparray];
+        [self.navigationController pushViewController:goodsdetailvc animated:YES];
+  
     }];
    
     /* 观察价格属性 */
@@ -88,56 +106,29 @@
 
     /* 全选 状态 */
     RAC(self.cartBar.selectAllButton, selected) = RACObserve(self.viewModel, isSelectAll);
+ 
     
-    
-    UIAlertController *alertviewcontroller = [UIAlertController alertControllerWithTitle:@"小海哥温馨提示,请您选择模式哦~~" message:@"请选择合适的展示方式" preferredStyle:UIAlertControllerStyleAlert];
-   
-    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"展示简洁的商铺数量" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        //展示商铺数量:
-        /* 购物车商铺数量 */
-        [RACObserve(self.viewModel, cartGoodsCount) subscribeNext:^(NSNumber *x) {
-            if(x.integerValue == 0){
-                [self.cartBar.payButton setTitle:@"去结算" forState:UIControlStateNormal];
-            } else {
-                [self.cartBar.payButton setTitle:[NSString stringWithFormat:@"去结算(%@家)",x] forState:UIControlStateNormal];
-            }
-        }];
-        
-    }];
-    
-    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"展示恰当的商品种类" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        //展示商品种类:
-        /* 购物车商品种类数量 */
-        [RACObserve(self.viewModel, cartGoodsKindsCount) subscribeNext:^(NSNumber *x) {
-            if(x.integerValue == 0){
-                [self.cartBar.payButton setTitle:@"去结算" forState:UIControlStateNormal];
-            } else {
-                [self.cartBar.payButton setTitle:[NSString stringWithFormat:@"去结算(%@类)",x] forState:UIControlStateNormal];
-            }
-        }];
-        
-    }];
-    UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"展示多多的商品数量" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        //展示商品总数量:
-        /* 观察购物车商品总数数量 */
-        [RACObserve(self.viewModel, cartGoodsTotalCount) subscribeNext:^(NSNumber *x) {
-            if(x.integerValue == 0){
-                [self.cartBar.payButton setTitle:@"去结算" forState:UIControlStateNormal];
-            } else {
-                [self.cartBar.payButton setTitle:[NSString stringWithFormat:@"去结算(%@个)",x] forState:UIControlStateNormal];
-            }
-        }];
-        
+    /* 监控删除按钮的可点击性 */
+    RACWEAK;
+    [RACObserve(self.viewModel, deleteenabel) subscribeNext:^(NSString *candelete) {
+        RACSTRONG;
+        self.cartBar.deleteButton.enabled = candelete && [candelete integerValue] == 1 ? YES :NO;
     }];
 
-    [alertviewcontroller addAction:action1];
-    [alertviewcontroller addAction:action2];
-    [alertviewcontroller addAction:action3];
-    [self presentViewController:alertviewcontroller animated:YES completion:nil];
+    
+    
+    /* 购物车商品种类数量 */
+    [RACObserve(self.viewModel, cartGoodsKindsCount) subscribeNext:^(NSNumber *x) {
+        if(x.integerValue == 0){
+            [self.cartBar.payButton setTitle:@"去结算" forState:UIControlStateNormal];
+        } else {
+            [self.cartBar.payButton setTitle:[NSString stringWithFormat:@"去结算(%@类)",x] forState:UIControlStateNormal];
+        }
+    }];
+
 
     
-    //设置一些初始值,默认全部选中:
-    [self.viewModel selectAll:YES];
+    
    
 }
 #pragma mark - 懒加载
@@ -167,7 +158,7 @@
     
     if (!_cartTableView) {
         
-        _cartTableView = [[UITableView alloc] initWithFrame:self.view.frame
+        _cartTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, self.view.frame.size.height - CartBarHeight)
                                                       style:UITableViewStyleGrouped];
         [_cartTableView registerNib:[UINib nibWithNibName:@"HYCartCell" bundle:nil]
              forCellReuseIdentifier:@"HYCartCell"];
@@ -176,13 +167,17 @@
         _cartTableView.dataSource = self.service;
         _cartTableView.delegate   = self.service;
         _cartTableView.backgroundColor = RGBA_COLOR(240, 240, 240, 1);
-        _cartTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, 50)];
         //设置点击回调事件:
-        DidSelectCellBlock selectedBlock = ^(NSIndexPath *indexPath, id item) {
-            NSLog(@"点击了第%@行,点击的商品价格为:%@",@(indexPath.row),item) ;
-            HYGoodsDetailVC *vc = [[HYGoodsDetailVC alloc]init];
-            vc.price = item;
-            [self.navigationController pushViewController:vc animated:YES];
+        DidSelectCellBlock selectedBlock = ^(NSIndexPath *indexPath, HYCartModel *model) {
+#ifdef  DEBUG
+            NSLog(@"点击了第%@行,点击的商品价格为:%@",@(indexPath.row),model.price) ;
+#endif
+            //只有为完成界面下的有效商品才可以点击跳转,其余不需要跳转
+            if (!self.viewModel.isIdit && [model.issx integerValue] == 0) {
+                HYGoodsDetailVC *vc = [[HYGoodsDetailVC alloc]init];
+                vc.price = model.price;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
             
         } ;
         self.service.didSelectCellBlock = selectedBlock;
@@ -193,7 +188,7 @@
 - (HYCartBar *)cartBar {
     
     if (!_cartBar) {
-        _cartBar = [[HYCartBar alloc] initWithFrame:CGRectMake(0, HEIGHT-50, WIDTH, 50)];
+        _cartBar = [[HYCartBar alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.cartTableView.frame), WIDTH, CartBarHeight)];
         _cartBar.isNormalState = YES;
     }
     return _cartBar;
@@ -202,21 +197,55 @@
 
 - (void)getNewData {
     /**
-     *  获取数据
+     *  获取数据,刷新tableview
      */
     [self.viewModel getData];
-    [self.cartTableView reloadData];
 }
 
 - (void)editClick:(UIBarButtonItem *)item {
     _isIdit = !_isIdit;
-    NSString *itemTitle = _isIdit == YES ? @"完成" : @"编辑";
-    _editItem.title = itemTitle;
-    self.cartBar.isNormalState = !_isIdit;
-//    self.cartTableView.editing = _isIdit;
+    if (_isIdit) {
+        //编辑状态下全不选为不和后台接口有交互
+        NSString *itemTitle = _isIdit == YES ? @"完成" : @"编辑";
+        _editItem.title = itemTitle;
+        self.cartBar.isNormalState = !_isIdit;
+        self.viewModel.isIdit = _isIdit;
+
+        [self.viewModel selectAll:NO ifconnect:NO];
+    }
+    else
+    {
+        //从编辑界面到完成界面，先看是否有修改的商品，如果有就进行更新数量的接口操作，然后获取新数据，没有则直接获取新数据
+        NSMutableArray *fixarray = [NSMutableArray array];
+        for (HYCartShopModel *shopmodel in self.viewModel.cartData ) {
+            for (HYCartModel *model in shopmodel.goods) {
+                //将修改过的数据加入到数组中
+                if ([model.isfixed integerValue] == 1) {
+                    NSDictionary *dic = @{@"id":model.sGoodId,@"count":model.count};
+                    [fixarray addObject:dic];
+                }
+            }
+        }
+        if (fixarray.count == 0) {
+            NSString *itemTitle = _isIdit == YES ? @"完成" : @"编辑";
+            _editItem.title = itemTitle;
+            self.cartBar.isNormalState = !_isIdit;
+            self.viewModel.isIdit = _isIdit;
+             [self.viewModel getData];
+        }
+        else{
+        //有修改过的数据:
+            
+            NSString *itemTitle = _isIdit == YES ? @"完成" : @"编辑";
+            _editItem.title = itemTitle;
+            self.cartBar.isNormalState = !_isIdit;
+            self.viewModel.isIdit = _isIdit;
+            [self getNewData];
+            
+        }
+       
+    }
     
-    
-    [self.viewModel selectAll:!_isIdit];
 }
 
 - (void)makeNewData:(UIBarButtonItem *)item{
@@ -242,6 +271,7 @@
 - (void)removeFromLayer:(CALayer *)layerAnimation{
     [layerAnimation removeFromSuperlayer];
 }
+
 
 
 - (void)didReceiveMemoryWarning {

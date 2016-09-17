@@ -8,4 +8,6 @@ target 'HYOneMore' do
 pod 'RETableViewManager', '~> 1.7'
 #响应式编程
 pod 'ReactiveCocoa', '~> 2.5.0'
+#模型转化工具
+pod 'RMMapper', '~> 1.1.5'
 end

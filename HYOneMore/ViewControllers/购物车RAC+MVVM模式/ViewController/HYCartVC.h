@@ -19,4 +19,5 @@
  *  底部支付View
  */
 @property (nonatomic, strong) HYCartBar       *cartBar;
+
 @end

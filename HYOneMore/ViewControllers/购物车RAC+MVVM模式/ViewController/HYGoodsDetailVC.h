@@ -6,8 +6,8 @@
 //  Copyright © 2016年 海洋. All rights reserved.
 //
 
-#import "HYBaseViewController.h"
 
 @interface HYGoodsDetailVC : HYBaseViewController
+-(id)initWithOnlyDetail:(BOOL)OnlyDetail sumPrice:(NSString *)sumPrice DataArr:(NSMutableArray *)DataArr;
 @property (nonatomic,copy) NSString *price;
 @end

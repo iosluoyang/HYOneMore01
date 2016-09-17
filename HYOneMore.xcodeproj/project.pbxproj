@@ -10,25 +10,26 @@
 		821F69C51D830EF30047EE8B /* HYTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 821F69BD1D830EF30047EE8B /* HYTool.m */; };
 		821F69C61D830EF30047EE8B /* CALayer+HYTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 821F69C11D830EF30047EE8B /* CALayer+HYTool.m */; };
 		821F69C71D830EF30047EE8B /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 821F69C41D830EF30047EE8B /* UIColor+Hex.m */; };
-		824AE7051D7D4532008CBE29 /* HYCartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 824AE7031D7D4532008CBE29 /* HYCartCell.m */; };
-		824AE7061D7D4532008CBE29 /* HYCartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 824AE7041D7D4532008CBE29 /* HYCartCell.xib */; };
+		823B32DF1D8D200D00FAB42D /* HYCartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 823B32C61D8D200D00FAB42D /* HYCartModel.m */; };
+		823B32E01D8D200D00FAB42D /* HYCartShopModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 823B32C81D8D200D00FAB42D /* HYCartShopModel.m */; };
+		823B32E11D8D200D00FAB42D /* HYCartBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 823B32CB1D8D200D00FAB42D /* HYCartBar.m */; };
+		823B32E21D8D200D00FAB42D /* HYCartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 823B32CD1D8D200D00FAB42D /* HYCartCell.m */; };
+		823B32E31D8D200D00FAB42D /* HYCartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 823B32CE1D8D200D00FAB42D /* HYCartCell.xib */; };
+		823B32E41D8D200D00FAB42D /* HYCartFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 823B32D01D8D200D00FAB42D /* HYCartFooterView.m */; };
+		823B32E51D8D200D00FAB42D /* HYCartHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 823B32D21D8D200D00FAB42D /* HYCartHeaderView.m */; };
+		823B32E61D8D200D00FAB42D /* HYCartNumberCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 823B32D41D8D200D00FAB42D /* HYCartNumberCount.m */; };
+		823B32E71D8D200D00FAB42D /* HYCartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 823B32D71D8D200D00FAB42D /* HYCartVC.m */; };
+		823B32E81D8D200D00FAB42D /* HYGoodsDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 823B32D91D8D200D00FAB42D /* HYGoodsDetailVC.m */; };
+		823B32E91D8D200D00FAB42D /* HYCartUIService.m in Sources */ = {isa = PBXBuildFile; fileRef = 823B32DC1D8D200D00FAB42D /* HYCartUIService.m */; };
+		823B32EA1D8D200D00FAB42D /* HYCartViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 823B32DE1D8D200D00FAB42D /* HYCartViewModel.m */; };
 		826B49281D7D104F00D527EE /* HYBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 826B49251D7D104F00D527EE /* HYBaseViewController.m */; };
 		826B492E1D7D10B300D527EE /* HYMainTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 826B492D1D7D10B300D527EE /* HYMainTableVC.m */; };
-		826B49351D7D14F500D527EE /* HYCartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 826B49341D7D14F500D527EE /* HYCartModel.m */; };
-		826B49381D7D15FC00D527EE /* HYCartBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 826B49371D7D15FC00D527EE /* HYCartBar.m */; };
 		82AE9FD11D7C5EDD0061E846 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82AE9FD01D7C5EDD0061E846 /* Assets.xcassets */; };
 		82AE9FD31D7C60460061E846 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82AE9FD21D7C60460061E846 /* Images.xcassets */; };
 		82D62DA51D76BA8800C91FFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D62DA41D76BA8800C91FFD /* main.m */; };
 		82D62DA81D76BA8800C91FFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D62DA71D76BA8800C91FFD /* AppDelegate.m */; };
 		82D62DAE1D76BA8800C91FFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82D62DAC1D76BA8800C91FFD /* Main.storyboard */; };
 		82D62DB61D76BA8800C91FFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82D62DB41D76BA8800C91FFD /* LaunchScreen.storyboard */; };
-		82FE1A4B1D7E61C9002C35E4 /* HYCartNumberCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FE1A4A1D7E61C9002C35E4 /* HYCartNumberCount.m */; };
-		82FE1A4E1D7E6E15002C35E4 /* HYCartFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FE1A4D1D7E6E15002C35E4 /* HYCartFooterView.m */; };
-		82FE1A511D7E7012002C35E4 /* HYCartHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FE1A501D7E7012002C35E4 /* HYCartHeaderView.m */; };
-		82FE1A541D7E7138002C35E4 /* HYCartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FE1A531D7E7138002C35E4 /* HYCartVC.m */; };
-		82FE1A571D7E71F4002C35E4 /* HYCartUIService.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FE1A561D7E71F4002C35E4 /* HYCartUIService.m */; };
-		82FE1A5A1D7E72C1002C35E4 /* HYCartViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FE1A591D7E72C1002C35E4 /* HYCartViewModel.m */; };
-		B0273F261D800A1300DB064B /* HYGoodsDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B0273F251D800A1300DB064B /* HYGoodsDetailVC.m */; };
 		C3D9AFDB5E15A3950198A09E /* Pods_HYOneMore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFB95110BCFEE6B360B9067A /* Pods_HYOneMore.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,17 +42,33 @@
 		821F69C11D830EF30047EE8B /* CALayer+HYTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+HYTool.m"; sourceTree = "<group>"; };
 		821F69C31D830EF30047EE8B /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		821F69C41D830EF30047EE8B /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
-		824AE7021D7D4532008CBE29 /* HYCartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCartCell.h; sourceTree = "<group>"; };
-		824AE7031D7D4532008CBE29 /* HYCartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCartCell.m; sourceTree = "<group>"; };
-		824AE7041D7D4532008CBE29 /* HYCartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HYCartCell.xib; sourceTree = "<group>"; };
+		823B32C51D8D200D00FAB42D /* HYCartModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCartModel.h; sourceTree = "<group>"; };
+		823B32C61D8D200D00FAB42D /* HYCartModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCartModel.m; sourceTree = "<group>"; };
+		823B32C71D8D200D00FAB42D /* HYCartShopModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCartShopModel.h; sourceTree = "<group>"; };
+		823B32C81D8D200D00FAB42D /* HYCartShopModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCartShopModel.m; sourceTree = "<group>"; };
+		823B32CA1D8D200D00FAB42D /* HYCartBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCartBar.h; sourceTree = "<group>"; };
+		823B32CB1D8D200D00FAB42D /* HYCartBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCartBar.m; sourceTree = "<group>"; };
+		823B32CC1D8D200D00FAB42D /* HYCartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCartCell.h; sourceTree = "<group>"; };
+		823B32CD1D8D200D00FAB42D /* HYCartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCartCell.m; sourceTree = "<group>"; };
+		823B32CE1D8D200D00FAB42D /* HYCartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HYCartCell.xib; sourceTree = "<group>"; };
+		823B32CF1D8D200D00FAB42D /* HYCartFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCartFooterView.h; sourceTree = "<group>"; };
+		823B32D01D8D200D00FAB42D /* HYCartFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCartFooterView.m; sourceTree = "<group>"; };
+		823B32D11D8D200D00FAB42D /* HYCartHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCartHeaderView.h; sourceTree = "<group>"; };
+		823B32D21D8D200D00FAB42D /* HYCartHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCartHeaderView.m; sourceTree = "<group>"; };
+		823B32D31D8D200D00FAB42D /* HYCartNumberCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCartNumberCount.h; sourceTree = "<group>"; };
+		823B32D41D8D200D00FAB42D /* HYCartNumberCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCartNumberCount.m; sourceTree = "<group>"; };
+		823B32D61D8D200D00FAB42D /* HYCartVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCartVC.h; sourceTree = "<group>"; };
+		823B32D71D8D200D00FAB42D /* HYCartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCartVC.m; sourceTree = "<group>"; };
+		823B32D81D8D200D00FAB42D /* HYGoodsDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYGoodsDetailVC.h; sourceTree = "<group>"; };
+		823B32D91D8D200D00FAB42D /* HYGoodsDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYGoodsDetailVC.m; sourceTree = "<group>"; };
+		823B32DB1D8D200D00FAB42D /* HYCartUIService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCartUIService.h; sourceTree = "<group>"; };
+		823B32DC1D8D200D00FAB42D /* HYCartUIService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCartUIService.m; sourceTree = "<group>"; };
+		823B32DD1D8D200D00FAB42D /* HYCartViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCartViewModel.h; sourceTree = "<group>"; };
+		823B32DE1D8D200D00FAB42D /* HYCartViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCartViewModel.m; sourceTree = "<group>"; };
 		826B49241D7D104F00D527EE /* HYBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYBaseViewController.h; sourceTree = "<group>"; };
 		826B49251D7D104F00D527EE /* HYBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYBaseViewController.m; sourceTree = "<group>"; };
 		826B492C1D7D10B300D527EE /* HYMainTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYMainTableVC.h; sourceTree = "<group>"; };
 		826B492D1D7D10B300D527EE /* HYMainTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYMainTableVC.m; sourceTree = "<group>"; };
-		826B49331D7D14F500D527EE /* HYCartModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCartModel.h; sourceTree = "<group>"; };
-		826B49341D7D14F500D527EE /* HYCartModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCartModel.m; sourceTree = "<group>"; };
-		826B49361D7D15FC00D527EE /* HYCartBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCartBar.h; sourceTree = "<group>"; };
-		826B49371D7D15FC00D527EE /* HYCartBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCartBar.m; sourceTree = "<group>"; };
 		82AE9FD01D7C5EDD0061E846 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82AE9FD21D7C60460061E846 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		82D62DA01D76BA8800C91FFD /* HYOneMore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HYOneMore.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,20 +79,6 @@
 		82D62DB51D76BA8800C91FFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		82D62DB71D76BA8800C91FFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82DEC98D1D7C242C006C2721 /* HYOneMore.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYOneMore.pch; sourceTree = "<group>"; };
-		82FE1A491D7E61C9002C35E4 /* HYCartNumberCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCartNumberCount.h; sourceTree = "<group>"; };
-		82FE1A4A1D7E61C9002C35E4 /* HYCartNumberCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCartNumberCount.m; sourceTree = "<group>"; };
-		82FE1A4C1D7E6E15002C35E4 /* HYCartFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCartFooterView.h; sourceTree = "<group>"; };
-		82FE1A4D1D7E6E15002C35E4 /* HYCartFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCartFooterView.m; sourceTree = "<group>"; };
-		82FE1A4F1D7E7012002C35E4 /* HYCartHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCartHeaderView.h; sourceTree = "<group>"; };
-		82FE1A501D7E7012002C35E4 /* HYCartHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCartHeaderView.m; sourceTree = "<group>"; };
-		82FE1A521D7E7138002C35E4 /* HYCartVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCartVC.h; sourceTree = "<group>"; };
-		82FE1A531D7E7138002C35E4 /* HYCartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCartVC.m; sourceTree = "<group>"; };
-		82FE1A551D7E71F4002C35E4 /* HYCartUIService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCartUIService.h; sourceTree = "<group>"; };
-		82FE1A561D7E71F4002C35E4 /* HYCartUIService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCartUIService.m; sourceTree = "<group>"; };
-		82FE1A581D7E72C1002C35E4 /* HYCartViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCartViewModel.h; sourceTree = "<group>"; };
-		82FE1A591D7E72C1002C35E4 /* HYCartViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCartViewModel.m; sourceTree = "<group>"; };
-		B0273F241D800A1300DB064B /* HYGoodsDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYGoodsDetailVC.h; sourceTree = "<group>"; };
-		B0273F251D800A1300DB064B /* HYGoodsDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYGoodsDetailVC.m; sourceTree = "<group>"; };
 		DFB95110BCFEE6B360B9067A /* Pods_HYOneMore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HYOneMore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -135,6 +138,57 @@
 			path = "颜色拓展";
 			sourceTree = "<group>";
 		};
+		823B32C41D8D200D00FAB42D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				823B32C51D8D200D00FAB42D /* HYCartModel.h */,
+				823B32C61D8D200D00FAB42D /* HYCartModel.m */,
+				823B32C71D8D200D00FAB42D /* HYCartShopModel.h */,
+				823B32C81D8D200D00FAB42D /* HYCartShopModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		823B32C91D8D200D00FAB42D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				823B32CA1D8D200D00FAB42D /* HYCartBar.h */,
+				823B32CB1D8D200D00FAB42D /* HYCartBar.m */,
+				823B32CC1D8D200D00FAB42D /* HYCartCell.h */,
+				823B32CD1D8D200D00FAB42D /* HYCartCell.m */,
+				823B32CE1D8D200D00FAB42D /* HYCartCell.xib */,
+				823B32CF1D8D200D00FAB42D /* HYCartFooterView.h */,
+				823B32D01D8D200D00FAB42D /* HYCartFooterView.m */,
+				823B32D11D8D200D00FAB42D /* HYCartHeaderView.h */,
+				823B32D21D8D200D00FAB42D /* HYCartHeaderView.m */,
+				823B32D31D8D200D00FAB42D /* HYCartNumberCount.h */,
+				823B32D41D8D200D00FAB42D /* HYCartNumberCount.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		823B32D51D8D200D00FAB42D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				823B32D61D8D200D00FAB42D /* HYCartVC.h */,
+				823B32D71D8D200D00FAB42D /* HYCartVC.m */,
+				823B32D81D8D200D00FAB42D /* HYGoodsDetailVC.h */,
+				823B32D91D8D200D00FAB42D /* HYGoodsDetailVC.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		823B32DA1D8D200D00FAB42D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				823B32DB1D8D200D00FAB42D /* HYCartUIService.h */,
+				823B32DC1D8D200D00FAB42D /* HYCartUIService.m */,
+				823B32DD1D8D200D00FAB42D /* HYCartViewModel.h */,
+				823B32DE1D8D200D00FAB42D /* HYCartViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		826B49221D7D104F00D527EE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,10 +211,10 @@
 		826B492A1D7D108900D527EE /* 购物车RAC+MVVM模式 */ = {
 			isa = PBXGroup;
 			children = (
-				826B492F1D7D112200D527EE /* Model */,
-				826B49301D7D112200D527EE /* View */,
-				826B49311D7D112200D527EE /* ViewController */,
-				826B49321D7D112200D527EE /* ViewModel */,
+				823B32C41D8D200D00FAB42D /* Model */,
+				823B32C91D8D200D00FAB42D /* View */,
+				823B32D51D8D200D00FAB42D /* ViewController */,
+				823B32DA1D8D200D00FAB42D /* ViewModel */,
 			);
 			path = "购物车RAC+MVVM模式";
 			sourceTree = "<group>";
@@ -172,55 +226,6 @@
 				826B492D1D7D10B300D527EE /* HYMainTableVC.m */,
 			);
 			path = "主入口";
-			sourceTree = "<group>";
-		};
-		826B492F1D7D112200D527EE /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				826B49331D7D14F500D527EE /* HYCartModel.h */,
-				826B49341D7D14F500D527EE /* HYCartModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		826B49301D7D112200D527EE /* View */ = {
-			isa = PBXGroup;
-			children = (
-				826B49361D7D15FC00D527EE /* HYCartBar.h */,
-				826B49371D7D15FC00D527EE /* HYCartBar.m */,
-				824AE7021D7D4532008CBE29 /* HYCartCell.h */,
-				824AE7031D7D4532008CBE29 /* HYCartCell.m */,
-				824AE7041D7D4532008CBE29 /* HYCartCell.xib */,
-				82FE1A4C1D7E6E15002C35E4 /* HYCartFooterView.h */,
-				82FE1A4D1D7E6E15002C35E4 /* HYCartFooterView.m */,
-				82FE1A4F1D7E7012002C35E4 /* HYCartHeaderView.h */,
-				82FE1A501D7E7012002C35E4 /* HYCartHeaderView.m */,
-				82FE1A491D7E61C9002C35E4 /* HYCartNumberCount.h */,
-				82FE1A4A1D7E61C9002C35E4 /* HYCartNumberCount.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		826B49311D7D112200D527EE /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				82FE1A521D7E7138002C35E4 /* HYCartVC.h */,
-				82FE1A531D7E7138002C35E4 /* HYCartVC.m */,
-				B0273F241D800A1300DB064B /* HYGoodsDetailVC.h */,
-				B0273F251D800A1300DB064B /* HYGoodsDetailVC.m */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		826B49321D7D112200D527EE /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				82FE1A551D7E71F4002C35E4 /* HYCartUIService.h */,
-				82FE1A561D7E71F4002C35E4 /* HYCartUIService.m */,
-				82FE1A581D7E72C1002C35E4 /* HYCartViewModel.h */,
-				82FE1A591D7E72C1002C35E4 /* HYCartViewModel.m */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		82AE9FC01D7C51F90061E846 /* Tools */ = {
@@ -348,7 +353,7 @@
 			files = (
 				82D62DB61D76BA8800C91FFD /* LaunchScreen.storyboard in Resources */,
 				82AE9FD31D7C60460061E846 /* Images.xcassets in Resources */,
-				824AE7061D7D4532008CBE29 /* HYCartCell.xib in Resources */,
+				823B32E31D8D200D00FAB42D /* HYCartCell.xib in Resources */,
 				82AE9FD11D7C5EDD0061E846 /* Assets.xcassets in Resources */,
 				82D62DAE1D76BA8800C91FFD /* Main.storyboard in Resources */,
 			);
@@ -411,21 +416,22 @@
 			files = (
 				826B492E1D7D10B300D527EE /* HYMainTableVC.m in Sources */,
 				821F69C71D830EF30047EE8B /* UIColor+Hex.m in Sources */,
-				82FE1A571D7E71F4002C35E4 /* HYCartUIService.m in Sources */,
-				82FE1A5A1D7E72C1002C35E4 /* HYCartViewModel.m in Sources */,
-				B0273F261D800A1300DB064B /* HYGoodsDetailVC.m in Sources */,
-				82FE1A4E1D7E6E15002C35E4 /* HYCartFooterView.m in Sources */,
+				823B32E91D8D200D00FAB42D /* HYCartUIService.m in Sources */,
+				823B32E41D8D200D00FAB42D /* HYCartFooterView.m in Sources */,
 				826B49281D7D104F00D527EE /* HYBaseViewController.m in Sources */,
+				823B32EA1D8D200D00FAB42D /* HYCartViewModel.m in Sources */,
+				823B32E51D8D200D00FAB42D /* HYCartHeaderView.m in Sources */,
+				823B32E81D8D200D00FAB42D /* HYGoodsDetailVC.m in Sources */,
+				823B32E61D8D200D00FAB42D /* HYCartNumberCount.m in Sources */,
 				821F69C61D830EF30047EE8B /* CALayer+HYTool.m in Sources */,
-				82FE1A511D7E7012002C35E4 /* HYCartHeaderView.m in Sources */,
-				826B49351D7D14F500D527EE /* HYCartModel.m in Sources */,
-				82FE1A541D7E7138002C35E4 /* HYCartVC.m in Sources */,
+				823B32DF1D8D200D00FAB42D /* HYCartModel.m in Sources */,
+				823B32E01D8D200D00FAB42D /* HYCartShopModel.m in Sources */,
 				82D62DA81D76BA8800C91FFD /* AppDelegate.m in Sources */,
-				824AE7051D7D4532008CBE29 /* HYCartCell.m in Sources */,
 				821F69C51D830EF30047EE8B /* HYTool.m in Sources */,
-				82FE1A4B1D7E61C9002C35E4 /* HYCartNumberCount.m in Sources */,
-				826B49381D7D15FC00D527EE /* HYCartBar.m in Sources */,
+				823B32E21D8D200D00FAB42D /* HYCartCell.m in Sources */,
+				823B32E11D8D200D00FAB42D /* HYCartBar.m in Sources */,
 				82D62DA51D76BA8800C91FFD /* main.m in Sources */,
+				823B32E71D8D200D00FAB42D /* HYCartVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

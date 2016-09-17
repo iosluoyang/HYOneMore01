@@ -13,6 +13,7 @@
 #import "HYBaseViewController.h"
 #import "RETableViewManager.h"
 #import "ReactiveCocoa.h"
+#import "RMMapper.h"
 
 #pragma mark - 工具类
 #import "HYTool.h"

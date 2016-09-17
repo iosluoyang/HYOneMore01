@@ -82,9 +82,9 @@
     CGFloat endX = [endviewsuperview convertRect:endview.frame toView:[UIApplication sharedApplication].keyWindow].origin.x + [endviewsuperview convertRect:endview.frame toView:[UIApplication sharedApplication].keyWindow].size.width/2 ;
     CGFloat endY = [endviewsuperview convertRect:endview.frame toView:[UIApplication sharedApplication].keyWindow].origin.y + [endviewsuperview convertRect:endview.frame toView:[UIApplication sharedApplication].keyWindow].size.height/2;
     
-    //获取转折点(默认起点终点的差值的中心点)
-    CGFloat middleX = fabs(endX - startX);//取绝对值
-    CGFloat middleY = fabs(endY - startY);
+    //获取转折点(根据BOOL值判断是左弧度还是右弧度)
+    CGFloat middleX = fabs(endX - startX) /4;//取绝对值
+    CGFloat middleY = fabs(endY - startY)/2;
     
     
     
